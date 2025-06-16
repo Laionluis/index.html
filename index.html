@@ -38,7 +38,7 @@
       <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 class="text-3xl font-bold mb-4" data-i18n="aboutH">Sobre mim</h2>
-          <p class="mb-4" data-i18n="aboutP1">Sou desenvolvedor Full Stack com <strong>6+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.</p>
+          <p class="mb-4" data-i18n="aboutP1">Sou desenvolvedor Full Stack com <strong>7+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.</p>
           <p class="mb-4" data-i18n="aboutP2">Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.</p>
         </div>
         <div class="bg-white shadow p-6 rounded-lg">
@@ -91,7 +91,7 @@
     <!-- EXPERIENCE -->
     <section id="experience" class="py-16">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10">Experiência Profissional</h2>
+        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="expH">Experiência Profissional</h2>
         <div class="space-y-8">
           <!-- EMPLOYER RH -->
           <div class="bg-white shadow rounded-lg p-6">
@@ -141,9 +141,9 @@
     <!-- PROJECTS -->
     <section id="projects" class="bg-gray-100 py-16">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10">Projetos em Destaque</h2>
+        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="projectsH">Projetos em Destaque</h2>
         <!-- CONTINUATION OF PROJECTS SECTION -->
-        <p class="text-center text-gray-600 mb-8">Seguem alguns projetos pessoais / open source. Mais em meu <a href="https://github.com/" target="_blank" class="text-blue-600 underline">GitHub</a>.</p>
+        <p class="text-center text-gray-600 mb-8" data-i18n="projectsIntro">Seguem alguns projetos pessoais / open source. Mais em meu <a href="https://github.com/" target="_blank" class="text-blue-600 underline">GitHub</a>.</p>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="bg-white shadow rounded-lg p-6 flex flex-col">
             <h3 class="font-semibold text-xl mb-2">ApiTime‑Tracker</h3>
@@ -164,8 +164,8 @@
     <!-- CONTACT -->
     <section id="contact" class="py-16">
       <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-6">Entre em Contato</h2>
-        <p class="mb-6">Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo.</p>
+        <h2 class="text-3xl font-bold mb-6" data-i18n="contactH">Entre em Contato</h2>
+        <p class="mb-6" data-i18n="contactP">Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo.</p>
         <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
           <a href="mailto:ferreiralaionl@gmail.com" class="flex items-center space-x-2 text-blue-600 hover:underline">
             <span>Email</span>
@@ -193,37 +193,9 @@
 
     const translations = {
       pt: {
-        brand: "Laion L. Ferreira",
-        aboutNav: "Sobre",
-        skillsNav: "Habilidades",
-        expNav: "Experiência",
-        projNav: "Projetos",
-        contNav: "Contato",
-        heroH: "Full‑Stack .NET Developer",
-        heroSub: "Transformando desafios complexos em soluções <span class='font-semibold'>escaláveis</span> e <span class='font-semibold'>performáticas</span> usando .NET, Cloud e DevOps.",
-        heroBtn: "Contrate‑me",
-        aboutH: "Sobre mim",
-        aboutP1: "Sou desenvolvedor Full Stack com <strong>6+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.",
-        aboutP2: "Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.",
-        quick: "Resumo rápido",
-        skillsH: "Habilidades Técnicas"
-      },
+        brand:"Laion L. Ferreira",aboutNav:"Sobre",skillsNav:"Habilidades",expNav:"Experiência",projNav:"Projetos",contNav:"Contato",heroH:"Full‑Stack .NET Developer",heroSub:"Transformando desafios complexos em soluções <span class='font-semibold'>escaláveis</span> e <span class='font-semibold'>performáticas</span> usando .NET, Cloud e DevOps.",heroBtn:"Contrate‑me",aboutH:"Sobre mim",aboutP1:"Sou desenvolvedor Full Stack com <strong>7+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.",aboutP2:"Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.",quick:"Resumo rápido",skillsH:"Habilidades Técnicas",expH:"Experiência Profissional",projectsH:"Projetos em Destaque",projectsIntro:"Seguem alguns projetos pessoais / open source. Mais em meu <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",contactH:"Entre em Contato",contactP:"Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo."},
       en: {
-        brand: "Laion L. Ferreira",
-        aboutNav: "About",
-        skillsNav: "Skills",
-        expNav: "Experience",
-        projNav: "Projects",
-        contNav: "Contact",
-        heroH: ".NET Full‑Stack Developer",
-        heroSub: "Transforming complex challenges into <span class='font-semibold'>scalable</span> and <span class='font-semibold'>high-performance</span> solutions using .NET, Cloud, and DevOps.",
-        heroBtn: "Hire Me",
-        aboutH: "About Me",
-        aboutP1: "I’m a Full Stack Developer with <strong>6+ years of experience</strong>, focused on <strong>.NET/C#</strong>, microservices and cloud.",
-        aboutP2: "Specialized in <strong>Kubernetes</strong>, <strong>Docker</strong>, and <strong>NoSQL</strong>, I reduced costs and improved performance by up to 70%.",
-        quick: "Quick Summary",
-        skillsH: "Technical Skills"
-      }
+        brand:"Laion L. Ferreira",aboutNav:"About",skillsNav:"Skills",expNav:"Experience",projNav:"Projects",contNav:"Contact",heroH:".NET Full‑Stack Developer",heroSub:"Transforming complex challenges into <span class='font-semibold'>scalable</span> and <span class='font-semibold'>high‑performance</span> solutions using .NET, Cloud and DevOps.",heroBtn:"Hire Me",aboutH:"About Me",aboutP1:"I am a Full Stack developer with <strong>7+ years of experience</strong>, focused on <strong>.NET/C#</strong>, microservices and cloud.",aboutP2:"Specialised in <strong>Kubernetes</strong>, <strong>Docker</strong> and <strong>NoSQL</strong>, I reduced costs and improved performance by up to 70%.",quick:"Quick Summary",skillsH:"Technical Skills",expH:"Professional Experience",projectsH:"Featured Projects",projectsIntro:"Here are some personal / open source projects. More on my <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",contactH:"Get in Touch",contactP:"Interested in collaborating or hiring my services? Contact me through the channels below."}
     };
 
     const langToggle = document.getElementById("langToggle");
