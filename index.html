@@ -100,11 +100,11 @@
               <span class="text-sm text-gray-600">Jul 2023 – Presente</span>
             </div>
             <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li>Transformou relatórios síncronos em assíncronos, melhorando performance em 70%.</li>
-              <li>Arquitetou microserviços com RabbitMQ, Docker & Kubernetes.</li>
-              <li>Desenvolveu sistema de ponto por reconhecimento facial com AWS Rekognition & Xamarin.</li>
-              <li>Implementou módulo de geração de relatórios salvo em Azure Blob Storage.</li>
-              <li>Refatorou autenticação, aumentando rastreabilidade e segurança.</li>
+              <li data-i18n="emp1l1">Transformou relatórios síncronos em assíncronos, melhorando performance em 70%.</li>
+              <li data-i18n="emp1l2">Arquitetou microserviços com RabbitMQ, Docker & Kubernetes.</li>
+              <li data-i18n="emp1l3">Desenvolveu sistema de ponto por reconhecimento facial com AWS Rekognition & Xamarin.</li>
+              <li data-i18n="emp1l4">Implementou módulo de geração de relatórios salvo em Azure Blob Storage.</li>
+              <li data-i18n="emp1l5">Refatorou autenticação, aumentando rastreabilidade e segurança.</li>
             </ul>
           </div>
 
@@ -115,10 +115,10 @@
               <span class="text-sm text-gray-600">Mar 2022 – Jul 2023</span>
             </div>
             <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li>Desenvolveu microserviços e integrações usando .NET MVC e RabbitMQ.</li>
-              <li>Implementou PIX end‑to‑end, incluindo back‑end, integração bancária e front‑end.</li>
-              <li>Melhorou segurança em 2 sites, reduzindo incidentes em 90%.</li>
-              <li>Redesign visual do site, gerando 30% mais leads.</li>
+              <li data-i18n="emp2l1">Desenvolveu microserviços e integrações usando .NET MVC e RabbitMQ.</li>
+              <li data-i18n="emp2l2">Implementou PIX end‑to‑end, incluindo back‑end, integração bancária e front‑end.</li>
+              <li data-i18n="emp2l3">Melhorou segurança em 2 sites, reduzindo incidentes em 90%.</li>
+              <li data-i18n="emp2l4">Redesign visual do site, gerando 30% mais leads.</li>
             </ul>
           </div>
 
@@ -129,9 +129,9 @@
               <span class="text-sm text-gray-600">Jul 2018 – Mar 2022</span>
             </div>
             <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li>Reduziu bugs em 70% através de análise de fluxo e testes unitários.</li>
-              <li>Otimização de procedures e views: +60% de performance.</li>
-              <li>Front‑end AngularJS e full‑stack .NET WebForms.</li>
+              <li data-i18n="emp3l1">Reduziu bugs em 70% através de análise de fluxo e testes unitários.</li>
+              <li data-i18n="emp3l2">Otimização de procedures e views: +60% de performance.</li>
+              <li data-i18n="emp3l3">Front‑end AngularJS e full‑stack .NET WebForms.</li>
             </ul>
           </div>
         </div>
@@ -146,16 +146,16 @@
         <p class="text-center text-gray-600 mb-8" data-i18n="projectsIntro">Seguem alguns projetos pessoais / open source. Mais em meu <a href="https://github.com/" target="_blank" class="text-blue-600 underline">GitHub</a>.</p>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2">ApiTime‑Tracker</h3>
-            <p class="text-sm flex-grow">API REST em .NET 8 para controle de ponto com autenticação JWT, Docker, CI/CD GitHub Actions e cobertura de testes 95%.</p>
+            <h3 class="font-semibold text-xl mb-2" data-i18n="proj1Title">ApiTime‑Tracker</h3>
+            <p class="text-sm flex-grow" data-i18n="proj1Desc">API REST em .NET 8 para controle de ponto com autenticação JWT, Docker, CI/CD GitHub Actions e cobertura de testes 95%.</p>
           </div>
           <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2">Pix‑Gateway</h3>
-            <p class="text-sm flex-grow">Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas.</p>
+            <h3 class="font-semibold text-xl mb-2" data-i18n="proj2Title">Pix‑Gateway</h3>
+            <p class="text-sm flex-grow" data-i18n="proj2Desc">Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas.</p>
           </div>
           <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2">K8s‑Metrics‑Dashboard</h3>
-            <p class="text-sm flex-grow">Dashboard em React + SignalR exibindo métricas de microserviços .NET em tempo real, implantado em AKS.</p>
+            <h3 class="font-semibold text-xl mb-2" data-i18n="proj3Title">K8s‑Metrics‑Dashboard</h3>
+            <p class="text-sm flex-grow" data-i18n="proj3Desc">Dashboard em React + SignalR exibindo métricas de microserviços .NET em tempo real, implantado em AKS.</p>
           </div>
         </div>
       </div>
@@ -193,10 +193,110 @@
 
     const translations = {
       pt: {
-        brand:"Laion L. Ferreira",aboutNav:"Sobre",skillsNav:"Habilidades",expNav:"Experiência",projNav:"Projetos",contNav:"Contato",heroH:"Full‑Stack .NET Developer",heroSub:"Transformando desafios complexos em soluções <span class='font-semibold'>escaláveis</span> e <span class='font-semibold'>performáticas</span> usando .NET, Cloud e DevOps.",heroBtn:"Contrate‑me",aboutH:"Sobre mim",aboutP1:"Sou desenvolvedor Full Stack com <strong>7+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.",aboutP2:"Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.",quick:"Resumo rápido",skillsH:"Habilidades Técnicas",expH:"Experiência Profissional",projectsH:"Projetos em Destaque",projectsIntro:"Seguem alguns projetos pessoais / open source. Mais em meu <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",contactH:"Entre em Contato",contactP:"Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo."},
+        brand: "Laion L. Ferreira",
+        aboutNav: "Sobre",
+        skillsNav: "Habilidades",
+        expNav: "Experiência",
+        projNav: "Projetos",
+        contNav: "Contato",
+    
+        heroH: "Full-Stack .NET Developer",
+        heroSub: "Transformando desafios complexos em soluções <span class='font-semibold'>escaláveis</span> e <span class='font-semibold'>performáticas</span> usando .NET, Cloud e DevOps.",
+        heroBtn: "Contrate-me",
+    
+        aboutH: "Sobre mim",
+        aboutP1: "Sou desenvolvedor Full Stack com <strong>7+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.",
+        aboutP2: "Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.",
+        quick: "Resumo rápido",
+    
+        skillsH: "Habilidades Técnicas",
+    
+        /* Experiência – título da seção */
+        expH: "Experiência Profissional",
+        /* EMPLOYER RH */
+        emp1l1: "Transformou relatórios síncronos em assíncronos, melhorando performance em 70%.",
+        emp1l2: "Arquitetou microserviços com RabbitMQ, Docker & Kubernetes.",
+        emp1l3: "Desenvolveu sistema de ponto por reconhecimento facial com AWS Rekognition & Xamarin.",
+        emp1l4: "Implementou módulo de geração de relatórios salvo em Azure Blob Storage.",
+        emp1l5: "Refatorou autenticação, aumentando rastreabilidade e segurança.",
+        /* META IT */
+        emp2l1: "Desenvolveu microserviços e integrações usando .NET MVC e RabbitMQ.",
+        emp2l2: "Implementou PIX end-to-end, incluindo back-end, integração bancária e front-end.",
+        emp2l3: "Melhorou segurança em 2 sites, reduzindo incidentes em 90%.",
+        emp2l4: "Redesign visual do site, gerando 30% mais leads.",
+        /* MPS Informática */
+        emp3l1: "Reduziu bugs em 70% através de análise de fluxo e testes unitários.",
+        emp3l2: "Otimização de procedures e views: +60% de performance.",
+        emp3l3: "Front-end AngularJS e full-stack .NET WebForms.",
+    
+        /* Projetos */
+        projectsH: "Projetos em Destaque",
+        projectsIntro: "Seguem alguns projetos pessoais / open source. Mais em meu <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",
+        proj1Title: "ApiTime-Tracker",
+        proj1Desc: "API REST em .NET 8 para controle de ponto com autenticação JWT, Docker, CI/CD GitHub Actions e cobertura de testes 95%.",
+        proj2Title: "Pix-Gateway",
+        proj2Desc: "Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas.",
+        proj3Title: "K8s-Metrics-Dashboard",
+        proj3Desc: "Dashboard em React + SignalR exibindo métricas de microserviços .NET em tempo real, implantado em AKS.",
+    
+        /* Contato */
+        contactH: "Entre em Contato",
+        contactP: "Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo."
+      },
+    
       en: {
-        brand:"Laion L. Ferreira",aboutNav:"About",skillsNav:"Skills",expNav:"Experience",projNav:"Projects",contNav:"Contact",heroH:".NET Full‑Stack Developer",heroSub:"Transforming complex challenges into <span class='font-semibold'>scalable</span> and <span class='font-semibold'>high‑performance</span> solutions using .NET, Cloud and DevOps.",heroBtn:"Hire Me",aboutH:"About Me",aboutP1:"I am a Full Stack developer with <strong>7+ years of experience</strong>, focused on <strong>.NET/C#</strong>, microservices and cloud.",aboutP2:"Specialised in <strong>Kubernetes</strong>, <strong>Docker</strong> and <strong>NoSQL</strong>, I reduced costs and improved performance by up to 70%.",quick:"Quick Summary",skillsH:"Technical Skills",expH:"Professional Experience",projectsH:"Featured Projects",projectsIntro:"Here are some personal / open source projects. More on my <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",contactH:"Get in Touch",contactP:"Interested in collaborating or hiring my services? Contact me through the channels below."}
+        brand: "Laion L. Ferreira",
+        aboutNav: "About",
+        skillsNav: "Skills",
+        expNav: "Experience",
+        projNav: "Projects",
+        contNav: "Contact",
+    
+        heroH: ".NET Full-Stack Developer",
+        heroSub: "Transforming complex challenges into <span class='font-semibold'>scalable</span> and <span class='font-semibold'>high-performance</span> solutions using .NET, Cloud and DevOps.",
+        heroBtn: "Hire Me",
+    
+        aboutH: "About Me",
+        aboutP1: "I am a Full Stack developer with <strong>7+ years of experience</strong>, focused on <strong>.NET/C#</strong>, microservices and cloud.",
+        aboutP2: "Specialized in <strong>Kubernetes</strong>, <strong>Docker</strong> and <strong>NoSQL</strong>, I reduced costs and improved performance by up to 70%.",
+        quick: "Quick Summary",
+    
+        skillsH: "Technical Skills",
+    
+        /* Experience – section title */
+        expH: "Professional Experience",
+        /* EMPLOYER RH */
+        emp1l1: "Converted synchronous reports to asynchronous, boosting performance by 70%.",
+        emp1l2: "Architected microservices with RabbitMQ, Docker & Kubernetes.",
+        emp1l3: "Built a facial-recognition time-tracking system with AWS Rekognition & Xamarin.",
+        emp1l4: "Implemented reporting module stored in Azure Blob Storage.",
+        emp1l5: "Refactored authentication, increasing traceability and security.",
+        /* META IT */
+        emp2l1: "Developed microservices and integrations using .NET MVC and RabbitMQ.",
+        emp2l2: "Implemented end-to-end PIX payments, including back-end, bank integration and front-end.",
+        emp2l3: "Enhanced security on two websites, cutting incidents by 90%.",
+        emp2l4: "Redesigned main website, generating 30% more leads.",
+        /* MPS Informática */
+        emp3l1: "Cut bugs by 70% through flow analysis and unit testing.",
+        emp3l2: "Optimized procedures and views, achieving 60% faster performance.",
+        emp3l3: "Worked on AngularJS front-end and full-stack .NET WebForms.",
+    
+        /* Projects */
+        projectsH: "Featured Projects",
+        projectsIntro: "Here are some personal / open-source projects. More on my <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",
+        proj1Title: "ApiTime-Tracker",
+        proj1Desc: ".NET 8 REST API for time tracking with JWT auth, Docker, GitHub Actions CI/CD and 95% test coverage.",
+        proj2Title: "Pix-Gateway",
+        proj2Desc: "PIX payment microservice using Clean Architecture, Dapper, RabbitMQ and simulated bank integrations.",
+        proj3Title: "K8s-Metrics-Dashboard",
+        proj3Desc: "React + SignalR dashboard showing real-time metrics of .NET microservices deployed on AKS.",
+    
+        /* Contact */
+        contactH: "Get in Touch",
+        contactP: "Interested in collaborating or hiring my services? Reach me through the channels below."
+      }
     };
+
 
     const langToggle = document.getElementById("langToggle");
     let currentLang = "pt";
