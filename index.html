@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Laion Luis Ferreira – Full‑Stack .NET Developer</title>
-  <meta name="description" content="Portfolio of Laion Luis Ferreira – Full‑Stack .NET/C# developer with 7 years of experience.">
+  <meta name="description" content="Portfólio de Laion Luis Ferreira – Desenvolvedor Full‑Stack .NET/C# com 7 anos de experiência." />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>body{font-family:'Montserrat',sans-serif;scroll-behavior:smooth}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>body{font-family:"Montserrat",sans-serif;scroll-behavior:smooth}</style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav class="bg-white shadow fixed w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="font-bold text-xl text-blue-600" data-i18n="brand">Laion L. Ferreira</a>
@@ -38,8 +38,8 @@
       <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 class="text-3xl font-bold mb-4" data-i18n="aboutH">Sobre mim</h2>
-          <p class="mb-4" data-i18n="aboutP1">Sou desenvolvedor Full Stack com <strong>6+ anos de experiência</strong> focado em <strong>.NET/C#</strong>, microserviços e cloud.</p>
-          <p class="mb-4" data-i18n="aboutP2">Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>; reduzi custos e melhorei performance em até 70%.</p>
+          <p class="mb-4" data-i18n="aboutP1">Sou desenvolvedor Full Stack com <strong>6+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.</p>
+          <p class="mb-4" data-i18n="aboutP2">Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.</p>
         </div>
         <div class="bg-white shadow p-6 rounded-lg">
           <p class="font-semibold mb-2" data-i18n="quick">Resumo rápido</p>
@@ -53,29 +53,193 @@
       </div>
     </section>
 
-    <!-- SKILLS (static block retained) -->
-    <section id="skills" class="bg-gray-100 py-16"><div class="max-w-6xl mx-auto px-4"><h2 class="text-3xl font-bold text-center mb-10" data-i18n="skillsH">Habilidades Técnicas</h2><!-- content omitted for brevity --></div></section>
+    <!-- SKILLS -->
+    <section id="skills" class="bg-gray-100 py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="skillsH">Habilidades Técnicas</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white shadow p-6 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">Back‑End</h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>.NET 6/7/8, C#</li>
+              <li>ASP.NET Core Web API & MVC</li>
+              <li>Microserviços, RabbitMQ, gRPC</li>
+              <li>Entity Framework, Dapper</li>
+            </ul>
+          </div>
+          <div class="bg-white shadow p-6 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">Front‑End & Mobile</h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Angular, React, JavaScript/TypeScript</li>
+              <li>HTML5, CSS3, Tailwind</li>
+              <li>Xamarin, MAUI, React Native</li>
+            </ul>
+          </div>
+          <div class="bg-white shadow p-6 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">DevOps / Cloud</h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Docker & Kubernetes</li>
+              <li>Azure DevOps, AWS</li>
+              <li>CI/CD pipelines, GitHub Actions</li>
+              <li>Monitoring: Application Insights, ElasticSearch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- EXPERIENCE & PROJECTS skipped for brevity -->
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-10">Experiência Profissional</h2>
+        <div class="space-y-8">
+          <!-- EMPLOYER RH -->
+          <div class="bg-white shadow rounded-lg p-6">
+            <div class="flex justify-between flex-wrap gap-2">
+              <h3 class="font-semibold text-xl">Full Stack Developer – Employer RH</h3>
+              <span class="text-sm text-gray-600">Jul 2023 – Presente</span>
+            </div>
+            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
+              <li>Transformou relatórios síncronos em assíncronos, melhorando performance em 70%.</li>
+              <li>Arquitetou microserviços com RabbitMQ, Docker & Kubernetes.</li>
+              <li>Desenvolveu sistema de ponto por reconhecimento facial com AWS Rekognition & Xamarin.</li>
+              <li>Implementou módulo de geração de relatórios salvo em Azure Blob Storage.</li>
+              <li>Refatorou autenticação, aumentando rastreabilidade e segurança.</li>
+            </ul>
+          </div>
+
+          <!-- META IT -->
+          <div class="bg-white shadow rounded-lg p-6">
+            <div class="flex justify-between flex-wrap gap-2">
+              <h3 class="font-semibold text-xl">Software Engineer – Meta IT</h3>
+              <span class="text-sm text-gray-600">Mar 2022 – Jul 2023</span>
+            </div>
+            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
+              <li>Desenvolveu microserviços e integrações usando .NET MVC e RabbitMQ.</li>
+              <li>Implementou PIX end‑to‑end, incluindo back‑end, integração bancária e front‑end.</li>
+              <li>Melhorou segurança em 2 sites, reduzindo incidentes em 90%.</li>
+              <li>Redesign visual do site, gerando 30% mais leads.</li>
+            </ul>
+          </div>
+
+          <!-- MPS INFORMATICA -->
+          <div class="bg-white shadow rounded-lg p-6">
+            <div class="flex justify-between flex-wrap gap-2">
+              <h3 class="font-semibold text-xl">Full Stack Developer – MPS Informática</h3>
+              <span class="text-sm text-gray-600">Jul 2018 – Mar 2022</span>
+            </div>
+            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
+              <li>Reduziu bugs em 70% através de análise de fluxo e testes unitários.</li>
+              <li>Otimização de procedures e views: +60% de performance.</li>
+              <li>Front‑end AngularJS e full‑stack .NET WebForms.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="bg-gray-100 py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-10">Projetos em Destaque</h2>
+        <!-- CONTINUATION OF PROJECTS SECTION -->
+        <p class="text-center text-gray-600 mb-8">Seguem alguns projetos pessoais / open source. Mais em meu <a href="https://github.com/" target="_blank" class="text-blue-600 underline">GitHub</a>.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
+            <h3 class="font-semibold text-xl mb-2">ApiTime‑Tracker</h3>
+            <p class="text-sm flex-grow">API REST em .NET 8 para controle de ponto com autenticação JWT, Docker, CI/CD GitHub Actions e cobertura de testes 95%.</p>
+          </div>
+          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
+            <h3 class="font-semibold text-xl mb-2">Pix‑Gateway</h3>
+            <p class="text-sm flex-grow">Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas.</p>
+          </div>
+          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
+            <h3 class="font-semibold text-xl mb-2">K8s‑Metrics‑Dashboard</h3>
+            <p class="text-sm flex-grow">Dashboard em React + SignalR exibindo métricas de microserviços .NET em tempo real, implantado em AKS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-16 text-center"><div class="max-w-6xl mx-auto px-4"><h2 class="text-3xl font-bold mb-6" data-i18n="contactH">Entre em Contato</h2><p class="mb-6" data-i18n="contactSub">Interessado em colaborações? Me encontre:</p><div class="flex justify-center space-x-6"><a href="mailto:ferreiralaionl@gmail.com" class="text-blue-600 underline" data-i18n="email">Email</a><a href="https://www.linkedin.com/in/laion-luis-ferreira/" target="_blank" class="text-blue-600 underline" data-i18n="linkedin">LinkedIn</a></div></div></section>
+    <section id="contact" class="py-16">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">Entre em Contato</h2>
+        <p class="mb-6">Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo.</p>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
+          <a href="mailto:ferreiralaionl@gmail.com" class="flex items-center space-x-2 text-blue-600 hover:underline">
+            <span>Email</span>
+          </a>
+          <span class="hidden md:block">|</span>
+          <a href="https://www.linkedin.com/in/laion-luis-ferreira/" target="_blank" class="flex items-center space-x-2 text-blue-600 hover:underline">
+            <span>LinkedIn</span>
+          </a>
+          <span class="hidden md:block">|</span>
+          <a href="tel:+5541995663746" class="flex items-center space-x-2 text-blue-600 hover:underline">
+            <span>Telefone</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="bg-white text-center py-4 shadow-inner"><small class="text-gray-600" data-i18n="footer">© <span id="year"></span> Laion Luis Ferreira – Desenvolvedor .NET</small></footer>
+  <!-- FOOTER -->
+  <footer class="bg-white text-center py-4 shadow-inner">
+    <small class="text-gray-600">© <span id="year"></span> Laion Luis Ferreira – Desenvolvedor .NET</small>
+  </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const dict = {
-      pt:{brand:'Laion L. Ferreira',aboutNav:'Sobre',skillsNav:'Habilidades',expNav:'Experiência',projNav:'Projetos',contNav:'Contato',heroH:'Full‑Stack .NET Developer',heroSub:'Transformando desafios complexos em soluções <span class="font-semibold">escaláveis</span> e <span class="font-semibold">performáticas</span> usando .NET, Cloud e DevOps.',heroBtn:'Contrate‑me',aboutH:'Sobre mim',aboutP1:'Sou desenvolvedor Full Stack com <strong>6+ anos de experiência</strong> focado em <strong>.NET/C#</strong>, microserviços e cloud.',aboutP2:'Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>; reduzi custos e melhorei performance em até 70%.',quick:'Resumo rápido',skillsH:'Habilidades Técnicas',contactH:'Entre em Contato',contactSub:'Interessado em colaborações? Me encontre:',email:'Email',linkedin:'LinkedIn',footer:'© '+new Date().getFullYear()+' Laion Luis Ferreira – Desenvolvedor .NET'},
-      en:{brand:'Laion L. Ferreira',aboutNav:'About',skillsNav:'Skills',expNav:'Experience',projNav:'Projects',contNav:'Contact',heroH:'Full‑Stack .NET Developer',heroSub:'Transforming complex challenges into <span class="font-semibold">scalable</span> and <span class="font-semibold">high‑performance</span> solutions with .NET, Cloud & DevOps.',heroBtn:'Hire Me',aboutH:'About Me',aboutP1:'Full Stack developer with <strong>6+ years of experience</strong> focused on <strong>.NET/C#</strong>, microservices and cloud.',aboutP2:'Specialized in <strong>Kubernetes</strong>, <strong>Docker</strong>, <strong>NoSQL</strong>; cut costs and boosted performance by 70%.',quick:'Quick summary',skillsH:'Technical Skills',contactH:'Get in Touch',contactSub:'Interested in collaborating? Reach me at:',email:'Email',linkedin:'LinkedIn',footer:'© '+new Date().getFullYear()+' Laion Luis Ferreira – .NET Developer'}
+    const translations = {
+      pt: {
+        brand: "Laion L. Ferreira",
+        aboutNav: "Sobre",
+        skillsNav: "Habilidades",
+        expNav: "Experiência",
+        projNav: "Projetos",
+        contNav: "Contato",
+        heroH: "Full‑Stack .NET Developer",
+        heroSub: "Transformando desafios complexos em soluções <span class='font-semibold'>escaláveis</span> e <span class='font-semibold'>performáticas</span> usando .NET, Cloud e DevOps.",
+        heroBtn: "Contrate‑me",
+        aboutH: "Sobre mim",
+        aboutP1: "Sou desenvolvedor Full Stack com <strong>6+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.",
+        aboutP2: "Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.",
+        quick: "Resumo rápido",
+        skillsH: "Habilidades Técnicas"
+      },
+      en: {
+        brand: "Laion L. Ferreira",
+        aboutNav: "About",
+        skillsNav: "Skills",
+        expNav: "Experience",
+        projNav: "Projects",
+        contNav: "Contact",
+        heroH: ".NET Full‑Stack Developer",
+        heroSub: "Transforming complex challenges into <span class='font-semibold'>scalable</span> and <span class='font-semibold'>high-performance</span> solutions using .NET, Cloud, and DevOps.",
+        heroBtn: "Hire Me",
+        aboutH: "About Me",
+        aboutP1: "I’m a Full Stack Developer with <strong>6+ years of experience</strong>, focused on <strong>.NET/C#</strong>, microservices and cloud.",
+        aboutP2: "Specialized in <strong>Kubernetes</strong>, <strong>Docker</strong>, and <strong>NoSQL</strong>, I reduced costs and improved performance by up to 70%.",
+        quick: "Quick Summary",
+        skillsH: "Technical Skills"
+      }
     };
 
-    let lang='pt';
-    const toggle=document.getElementById('langToggle');
-    const setLang=l=>{lang=l;document.documentElement.lang=l;toggle.textContent=l==='pt'?'EN':'PT';document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(dict[l][key])el.innerHTML=dict[l][key];});};
-    toggle.addEventListener('click',()=>setLang(lang==='pt'?'en':'pt'));
+    const langToggle = document.getElementById("langToggle");
+    let currentLang = "pt";
+
+    langToggle.addEventListener("click", () => {
+      currentLang = currentLang === "pt" ? "en" : "pt";
+      langToggle.textContent = currentLang === "pt" ? "EN" : "PT";
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
+    });
   </script>
 </body>
 </html>
+
