@@ -1,348 +1,923 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laion Luis Ferreira – Full‑Stack .NET Developer</title>
-  <meta name="description" content="Portfólio de Laion Luis Ferreira – Desenvolvedor Full‑Stack .NET/C# com 7 anos de experiência." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>body{font-family:"Montserrat",sans-serif;scroll-behavior:smooth}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agropet Pantanal - Aviário Premium</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c5530;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2c5530;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 1s ease;
+        }
+
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c5530;
+            margin-bottom: 3rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .about-image {
+            text-align: center;
+            font-size: 15rem;
+            color: #2c5530;
+            opacity: 0.7;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #2c5530;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            width: 20px;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Staggered animations for service cards */
+        .service-card:nth-child(1) { transition-delay: 0.1s; }
+        .service-card:nth-child(2) { transition-delay: 0.2s; }
+        .service-card:nth-child(3) { transition-delay: 0.3s; }
+        .service-card:nth-child(4) { transition-delay: 0.4s; }
+        .service-card:nth-child(5) { transition-delay: 0.5s; }
+        .service-card:nth-child(6) { transition-delay: 0.6s; }
+
+        /* Staggered animations for gallery items */
+        .gallery-item:nth-child(1) { transition-delay: 0.1s; }
+        .gallery-item:nth-child(2) { transition-delay: 0.2s; }
+        .gallery-item:nth-child(3) { transition-delay: 0.3s; }
+        .gallery-item:nth-child(4) { transition-delay: 0.4s; }
+        .gallery-item:nth-child(5) { transition-delay: 0.5s; }
+        .gallery-item:nth-child(6) { transition-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                font-size: 8rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Floating Elements */
+        .floating-bird {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-bird:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-bird:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-bird:nth-child(3) {
+            top: 40%;
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Progress bar for scroll */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #667eea);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- NAVIGATION -->
-  <nav class="bg-white shadow fixed w-full z-50">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="font-bold text-xl text-blue-600" data-i18n="brand">Laion L. Ferreira</a>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
 
-      <!-- DESKTOP LINKS -->
-      <div class="hidden md:flex items-center space-x-6">
-        <a href="#about" class="hover:text-blue-600" data-i18n="aboutNav">Sobre</a>
-        <a href="#skills" class="hover:text-blue-600" data-i18n="skillsNav">Habilidades</a>
-        <a href="#experience" class="hover:text-blue-600" data-i18n="expNav">Experiência</a>
-        <a href="#projects" class="hover:text-blue-600" data-i18n="projNav">Projetos</a>
-        <a href="#contact" class="hover:text-blue-600" data-i18n="contNav">Contato</a>
-        <button id="langToggleDesk" class="px-3 py-1 border rounded text-sm hover:bg-gray-100">EN</button>
-      </div>
-
-      <!-- MOBILE HAMBURGER -->
-      <button id="burger" class="md:hidden flex items-center" aria-label="menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white shadow-inner border-t">
-      <div class="px-4 py-4 flex flex-col space-y-4 fade-enter">
-        <a href="#about" class="hover:text-blue-600" data-i18n="aboutNav">Sobre</a>
-        <a href="#skills" class="hover:text-blue-600" data-i18n="skillsNav">Habilidades</a>
-        <a href="#experience" class="hover:text-blue-600" data-i18n="expNav">Experiência</a>
-        <a href="#projects" class="hover:text-blue-600" data-i18n="projNav">Projetos</a>
-        <a href="#contact" class="hover:text-blue-600" data-i18n="contNav">Contato</a>
-        <button id="langToggleMob" class="w-max px-3 py-1 border rounded text-sm hover:bg-gray-100">EN</button>
-      </div>
-    </div>
-  </nav>
-
-  <main class="pt-20" id="home">
-    <!-- HERO -->
-    <section class="bg-blue-600 text-white py-20 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4" data-i18n="heroH">Full‑Stack .NET Developer</h1>
-      <p class="max-w-3xl mx-auto md:text-xl" data-i18n="heroSub">Transformando desafios complexos em soluções <span class="font-semibold">escaláveis</span> e <span class="font-semibold">performáticas</span> usando .NET, Cloud e DevOps.</p>
-      <a href="#contact" class="mt-8 inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100" data-i18n="heroBtn">Contrate‑me</a>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-16">
-      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-3xl font-bold mb-4" data-i18n="aboutH">Sobre mim</h2>
-          <p class="mb-4" data-i18n="aboutP1">Sou desenvolvedor Full Stack com <strong>7+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.</p>
-          <p class="mb-4" data-i18n="aboutP2">Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.</p>
-        </div>
-        <div class="bg-white shadow p-6 rounded-lg">
-          <p class="font-semibold mb-2" data-i18n="quick">Resumo rápido</p>
-          <ul class="text-sm list-disc list-inside space-y-1">
-            <li>.NET 6/7/8 · ASP.NET Core · REST</li>
-            <li>Angular · React · JavaScript</li>
-            <li>Docker · Kubernetes · CI/CD</li>
-            <li>SQL Server · MongoDB</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="bg-gray-100 py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="skillsH">Habilidades Técnicas</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white shadow p-6 rounded-lg">
-            <h3 class="font-semibold text-lg mb-2">Back‑End</h3>
-            <ul class="list-disc list-inside text-sm space-y-1">
-              <li>.NET 6/7/8, C#</li>
-              <li>ASP.NET Core Web API & MVC</li>
-              <li>Microserviços, RabbitMQ, gRPC</li>
-              <li>Entity Framework, Dapper</li>
-            </ul>
-          </div>
-          <div class="bg-white shadow p-6 rounded-lg">
-            <h3 class="font-semibold text-lg mb-2">Front‑End & Mobile</h3>
-            <ul class="list-disc list-inside text-sm space-y-1">
-              <li>Angular, React, JavaScript/TypeScript</li>
-              <li>HTML5, CSS3, Tailwind</li>
-              <li>Xamarin, MAUI, React Native</li>
-            </ul>
-          </div>
-          <div class="bg-white shadow p-6 rounded-lg">
-            <h3 class="font-semibold text-lg mb-2">DevOps / Cloud</h3>
-            <ul class="list-disc list-inside text-sm space-y-1">
-              <li>Docker & Kubernetes</li>
-              <li>Azure DevOps, AWS</li>
-              <li>CI/CD pipelines, GitHub Actions</li>
-              <li>Monitoring: Application Insights, ElasticSearch</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="expH">Experiência Profissional</h2>
-        <div class="space-y-8">
-          <!-- EMPLOYER RH -->
-          <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex justify-between flex-wrap gap-2">
-              <h3 class="font-semibold text-xl">Full Stack Developer – Employer RH</h3>
-              <span class="text-sm text-gray-600">Jul 2023 – Presente</span>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-dove"></i>
+                Agropet Pantanal
             </div>
-            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li data-i18n="emp1l1">Transformou relatórios síncronos em assíncronos, melhorando performance em 70%.</li>
-              <li data-i18n="emp1l2">Arquitetou microserviços com RabbitMQ, Docker & Kubernetes.</li>
-              <li data-i18n="emp1l3">Desenvolveu sistema de ponto por reconhecimento facial com AWS Rekognition & Xamarin.</li>
-              <li data-i18n="emp1l4">Implementou módulo de geração de relatórios salvo em Azure Blob Storage.</li>
-              <li data-i18n="emp1l5">Refatorou autenticação, aumentando rastreabilidade e segurança.</li>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Contato</a></li>
             </ul>
-          </div>
+        </nav>
+    </header>
 
-          <!-- META IT -->
-          <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex justify-between flex-wrap gap-2">
-              <h3 class="font-semibold text-xl">Software Engineer – Meta IT</h3>
-              <span class="text-sm text-gray-600">Mar 2022 – Jul 2023</span>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-bird"><i class="fas fa-dove"></i></div>
+        <div class="floating-bird"><i class="fas fa-feather-alt"></i></div>
+        <div class="floating-bird"><i class="fas fa-dove"></i></div>
+        
+        <div class="hero-content">
+            <h1>Agropet Pantanal</h1>
+            <p>O maior e mais completo aviário do Pantanal. Criamos aves exóticas com amor, cuidado e expertise há mais de 15 anos.</p>
+            <a href="#contact" class="cta-button">Entre em Contato</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">Sobre Nós</h2>
+            <div class="about-grid">
+                <div class="about-text fade-in-left">
+                    <h3>Tradição e Qualidade</h3>
+                    <p>Há mais de 15 anos no coração do Pantanal, o Agropet Pantanal é referência na criação e comercialização de aves exóticas. Nossa paixão por aves nos levou a desenvolver técnicas especializadas de manejo e cuidado.</p>
+                    
+                    <p>Oferecemos aves saudáveis, bem cuidadas e com toda a documentação necessária. Nosso compromisso é com a qualidade de vida dos animais e a satisfação dos nossos clientes.</p>
+                    
+                    <p>Localizado estrategicamente no Pantanal, aproveitamos o ambiente natural para proporcionar o melhor habitat possível para nossas aves.</p>
+                </div>
+                <div class="about-image fade-in-right">
+                    <i class="fas fa-dove"></i>
+                </div>
             </div>
-            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li data-i18n="emp2l1">Desenvolveu microserviços e integrações usando .NET MVC e RabbitMQ.</li>
-              <li data-i18n="emp2l2">Implementou PIX end‑to‑end, incluindo back‑end, integração bancária e front‑end.</li>
-              <li data-i18n="emp2l3">Melhorou segurança em 2 sites, reduzindo incidentes em 90%.</li>
-              <li data-i18n="emp2l4">Redesign visual do site, gerando 30% mais leads.</li>
-            </ul>
-          </div>
+        </div>
+    </section>
 
-          <!-- MPS INFORMATICA -->
-          <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex justify-between flex-wrap gap-2">
-              <h3 class="font-semibold text-xl">Full Stack Developer – MPS Informática</h3>
-              <span class="text-sm text-gray-600">Jul 2018 – Mar 2022</span>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card scale-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Venda de Aves</h3>
+                    <p>Amplo catálogo de aves exóticas, canários, papagaios, araras e muito mais. Todas com documentação e garantia de saúde.</p>
+                </div>
+                
+                <div class="service-card scale-in">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Cuidados Veterinários</h3>
+                    <p>Acompanhamento veterinário especializado, vacinação, tratamentos e check-ups regulares para garantir a saúde das aves.</p>
+                </div>
+                
+                <div class="service-card scale-in">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Consultoria</h3>
+                    <p>Orientações sobre manejo, alimentação, reprodução e cuidados específicos para cada espécie de ave.</p>
+                </div>
+                
+                <div class="service-card scale-in">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Acessórios</h3>
+                    <p>Gaiolas, viveiros, comedouros, bebedouros e todos os acessórios necessários para o bem-estar das suas aves.</p>
+                </div>
+                
+                <div class="service-card scale-in">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Alimentação</h3>
+                    <p>Rações premium, sementes selecionadas e suplementos nutricionais específicos para cada tipo de ave.</p>
+                </div>
+                
+                <div class="service-card scale-in">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Entrega</h3>
+                    <p>Serviço de entrega segura em toda a região do Pantanal, com transporte especializado para aves.</p>
+                </div>
             </div>
-            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li data-i18n="emp3l1">Reduziu bugs em 70% através de análise de fluxo e testes unitários.</li>
-              <li data-i18n="emp3l2">Otimização de procedures e views: +60% de performance.</li>
-              <li data-i18n="emp3l3">Front‑end AngularJS e full‑stack .NET WebForms.</li>
-            </ul>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="bg-gray-100 py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="projectsH">Projetos em Destaque</h2>
-        <!-- CONTINUATION OF PROJECTS SECTION -->
-        <p class="text-center text-gray-600 mb-8" data-i18n="projectsIntro">Seguem alguns projetos pessoais / open source. Mais em meu <a href="https://github.com/" target="_blank" class="text-blue-600 underline">GitHub</a>.</p>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2" data-i18n="proj1Title">ApiTime‑Tracker</h3>
-            <p class="text-sm flex-grow" data-i18n="proj1Desc">API REST em .NET 8 para controle de ponto com autenticação JWT, Docker, CI/CD GitHub Actions e cobertura de testes 95%.</p>
-          </div>
-          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2" data-i18n="proj2Title">Pix‑Gateway</h3>
-            <p class="text-sm flex-grow" data-i18n="proj2Desc">Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas.</p>
-          </div>
-          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2" data-i18n="proj3Title">K8s‑Metrics‑Dashboard</h3>
-            <p class="text-sm flex-grow" data-i18n="proj3Desc">Dashboard em React + SignalR exibindo métricas de microserviços .NET em tempo real, implantado em AKS.</p>
-          </div>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">Nossa Galeria</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item slide-up">
+                    <i class="fas fa-dove"></i>
+                </div>
+                <div class="gallery-item slide-up">
+                    <i class="fas fa-feather-alt"></i>
+                </div>
+                <div class="gallery-item slide-up">
+                    <i class="fas fa-egg"></i>
+                </div>
+                <div class="gallery-item slide-up">
+                    <i class="fas fa-dove"></i>
+                </div>
+                <div class="gallery-item slide-up">
+                    <i class="fas fa-feather"></i>
+                </div>
+                <div class="gallery-item slide-up">
+                    <i class="fas fa-dove"></i>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-16">
-      <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-6" data-i18n="contactH">Entre em Contato</h2>
-        <p class="mb-6" data-i18n="contactP">Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo.</p>
-        <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
-          <a href="mailto:ferreiralaionl@gmail.com" class="flex items-center space-x-2 text-blue-600 hover:underline">
-            <span>Email</span>
-          </a>
-          <span class="hidden md:block">|</span>
-          <a href="https://www.linkedin.com/in/laion-luis-ferreira/" target="_blank" class="flex items-center space-x-2 text-blue-600 hover:underline">
-            <span>LinkedIn</span>
-          </a>
-          <span class="hidden md:block">|</span>
-          <a href="tel:+5541995663746" class="flex items-center space-x-2 text-blue-600 hover:underline">
-            <span>Telefone</span>
-          </a>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: white;">Entre em Contato</h2>
+            <div class="contact-grid">
+                <div class="contact-info fade-in-left">
+                    <h3>Informações de Contato</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rodovia Transpantaneira, Km 45<br>Poconé - MT, 78175-000</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(65) 3345-1234</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-whatsapp"></i>
+                        <span>(65) 99999-8888</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@agropetpantanal.com.br</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Segunda a Sábado: 7h às 17h<br>Domingo: 8h às 12h</span>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in-right">
+                    <h3>Envie uma Mensagem</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefone:</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem:</label>
+                            <textarea id="message" name="message" placeholder="Conte-nos como podemos ajudá-lo..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-white text-center py-4 shadow-inner">
-    <small class="text-gray-600">© <span id="year"></span> Laion Luis Ferreira – Desenvolvedor .NET</small>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content fade-in">
+            <div>
+                <p>&copy; 2024 Agropet Pantanal. Todos os direitos reservados.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-    const translations = {
-      pt: {
-        brand: "Laion L. Ferreira",
-        aboutNav: "Sobre",
-        skillsNav: "Habilidades",
-        expNav: "Experiência",
-        projNav: "Projetos",
-        contNav: "Contato",
-    
-        heroH: "Full-Stack .NET Developer",
-        heroSub: "Transformando desafios complexos em soluções <span class='font-semibold'>escaláveis</span> e <span class='font-semibold'>performáticas</span> usando .NET, Cloud e DevOps.",
-        heroBtn: "Contrate-me",
-    
-        aboutH: "Sobre mim",
-        aboutP1: "Sou desenvolvedor Full Stack com <strong>7+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.",
-        aboutP2: "Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.",
-        quick: "Resumo rápido",
-    
-        skillsH: "Habilidades Técnicas",
-    
-        /* Experiência – título da seção */
-        expH: "Experiência Profissional",
-        /* EMPLOYER RH */
-        emp1l1: "Transformou relatórios síncronos em assíncronos, melhorando performance em 70%.",
-        emp1l2: "Arquitetou microserviços com RabbitMQ, Docker & Kubernetes.",
-        emp1l3: "Desenvolveu sistema de ponto por reconhecimento facial com AWS Rekognition & Xamarin.",
-        emp1l4: "Implementou módulo de geração de relatórios salvo em Azure Blob Storage.",
-        emp1l5: "Refatorou autenticação, aumentando rastreabilidade e segurança.",
-        /* META IT */
-        emp2l1: "Desenvolveu microserviços e integrações usando .NET MVC e RabbitMQ.",
-        emp2l2: "Implementou PIX end-to-end, incluindo back-end, integração bancária e front-end.",
-        emp2l3: "Melhorou segurança em 2 sites, reduzindo incidentes em 90%.",
-        emp2l4: "Redesign visual do site, gerando 30% mais leads.",
-        /* MPS Informática */
-        emp3l1: "Reduziu bugs em 70% através de análise de fluxo e testes unitários.",
-        emp3l2: "Otimização de procedures e views: +60% de performance.",
-        emp3l3: "Front-end AngularJS e full-stack .NET WebForms.",
-    
-        /* Projetos */
-        projectsH: "Projetos em Destaque",
-        projectsIntro: "Seguem alguns projetos pessoais / open source. Mais em meu <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",
-        proj1Title: "ApiTime-Tracker",
-        proj1Desc: "API REST em .NET 8 para controle de ponto com autenticação JWT, Docker, CI/CD GitHub Actions e cobertura de testes 95%.",
-        proj2Title: "Pix-Gateway",
-        proj2Desc: "Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas.",
-        proj3Title: "K8s-Metrics-Dashboard",
-        proj3Desc: "Dashboard em React + SignalR exibindo métricas de microserviços .NET em tempo real, implantado em AKS.",
-    
-        /* Contato */
-        contactH: "Entre em Contato",
-        contactP: "Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo."
-      },
-    
-      en: {
-        brand: "Laion L. Ferreira",
-        aboutNav: "About",
-        skillsNav: "Skills",
-        expNav: "Experience",
-        projNav: "Projects",
-        contNav: "Contact",
-    
-        heroH: ".NET Full-Stack Developer",
-        heroSub: "Transforming complex challenges into <span class='font-semibold'>scalable</span> and <span class='font-semibold'>high-performance</span> solutions using .NET, Cloud and DevOps.",
-        heroBtn: "Hire Me",
-    
-        aboutH: "About Me",
-        aboutP1: "I am a Full Stack developer with <strong>7+ years of experience</strong>, focused on <strong>.NET/C#</strong>, microservices and cloud.",
-        aboutP2: "Specialized in <strong>Kubernetes</strong>, <strong>Docker</strong> and <strong>NoSQL</strong>, I reduced costs and improved performance by up to 70%.",
-        quick: "Quick Summary",
-    
-        skillsH: "Technical Skills",
-    
-        /* Experience – section title */
-        expH: "Professional Experience",
-        /* EMPLOYER RH */
-        emp1l1: "Converted synchronous reports to asynchronous, boosting performance by 70%.",
-        emp1l2: "Architected microservices with RabbitMQ, Docker & Kubernetes.",
-        emp1l3: "Built a facial-recognition time-tracking system with AWS Rekognition & Xamarin.",
-        emp1l4: "Implemented reporting module stored in Azure Blob Storage.",
-        emp1l5: "Refactored authentication, increasing traceability and security.",
-        /* META IT */
-        emp2l1: "Developed microservices and integrations using .NET MVC and RabbitMQ.",
-        emp2l2: "Implemented end-to-end PIX payments, including back-end, bank integration and front-end.",
-        emp2l3: "Enhanced security on two websites, cutting incidents by 90%.",
-        emp2l4: "Redesigned main website, generating 30% more leads.",
-        /* MPS Informática */
-        emp3l1: "Cut bugs by 70% through flow analysis and unit testing.",
-        emp3l2: "Optimized procedures and views, achieving 60% faster performance.",
-        emp3l3: "Worked on AngularJS front-end and full-stack .NET WebForms.",
-    
-        /* Projects */
-        projectsH: "Featured Projects",
-        projectsIntro: "Here are some personal / open-source projects. More on my <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",
-        proj1Title: "ApiTime-Tracker",
-        proj1Desc: ".NET 8 REST API for time tracking with JWT auth, Docker, GitHub Actions CI/CD and 95% test coverage.",
-        proj2Title: "Pix-Gateway",
-        proj2Desc: "PIX payment microservice using Clean Architecture, Dapper, RabbitMQ and simulated bank integrations.",
-        proj3Title: "K8s-Metrics-Dashboard",
-        proj3Desc: "React + SignalR dashboard showing real-time metrics of .NET microservices deployed on AKS.",
-    
-        /* Contact */
-        contactH: "Get in Touch",
-        contactP: "Interested in collaborating or hiring my services? Reach me through the channels below."
-      }
-    };
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
 
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
 
-   // LANGUAGE TOGGLE (desktop & mobile share state)
-    let currentLang='pt';
-    const updateLangBtns=()=>{
-      document.querySelectorAll('#langToggleDesk,#langToggleMob').forEach(btn=>{btn.textContent=currentLang==='pt'?'EN':'PT';});
-    };
-    const applyTranslations=()=>{
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key=el.dataset.i18n;
-        translations[currentLang][key] && (el.innerHTML=translations[currentLang][key]);
-      });
-    };
-    document.addEventListener('click',e=>{
-      if(e.target.id==='langToggleDesk'||e.target.id==='langToggleMob'){
-        currentLang=currentLang==='pt'?'en':'pt';
-        applyTranslations();updateLangBtns();
-      }
-    });
-    applyTranslations();updateLangBtns();
+        // Enhanced Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-    // MOBILE MENU TOGGLE
-    const burger=document.getElementById('burger');
-    const mobileMenu=document.getElementById('mobileMenu');
-    burger.addEventListener('click',()=>{
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in, .slide-up');
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for numbers (if you want to add statistics)
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                element.textContent = Math.floor(start);
+                
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+
+        // Form submission with animation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Add loading animation to button
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.style.background = '#ccc';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Enviado!';
+                submitBtn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '#ff6b6b';
+                }, 1000);
+            }, 1500);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Add entrance animations to service cards on scroll
+        const serviceCards = document.querySelectorAll('.service-card');
+        const servicesObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = `bounceIn 0.6s ease forwards`;
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        serviceCards.forEach(card => {
+            servicesObserver.observe(card);
+        });
+
+        // Add typing effect to hero title (optional)
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Uncomment to enable typing effect on hero title
+        // window.addEventListener('load', () => {
+        //     const heroTitle = document.querySelector('.hero h1');
+        //     typeWriter(heroTitle, 'Agropet Pantanal', 150);
+        // });
+    </script>
 </body>
 </html>
-
