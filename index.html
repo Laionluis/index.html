@@ -3,346 +3,1100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laion Luis Ferreira – Full‑Stack .NET Developer</title>
-  <meta name="description" content="Portfólio de Laion Luis Ferreira – Desenvolvedor Full‑Stack .NET/C# com 7 anos de experiência." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>body{font-family:"Montserrat",sans-serif;scroll-behavior:smooth}</style>
+  <title>Laion Ferreira – Senior Full-Stack Developer & AI Engineer</title>
+  <meta name="description" content="Desenvolvedor Full-Stack Sênior especializado em .NET, Cloud, DevOps e IA/RAG. Disponível para projetos freelance." />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous"/>
+
+  <style>
+    :root {
+      --bg: #09090f;
+      --surface: #111118;
+      --surface2: #18181f;
+      --border: rgba(255,255,255,0.07);
+      --accent: #5b6af7;
+      --accent2: #a78bfa;
+      --accent3: #38e8c8;
+      --text: #e8e8f0;
+      --muted: #6b7280;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.3;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(9,9,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800; font-size: 1.1rem;
+      color: var(--text); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 0.5rem 1.2rem; border-radius: 8px;
+      font-weight: 600 !important; font-size: 0.875rem !important;
+      transition: opacity 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+    .nav-lang {
+      border: 1px solid var(--border); background: transparent; color: var(--muted);
+      padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem; cursor: pointer;
+      font-family: var(--font-body); transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-lang:hover { color: var(--text); border-color: var(--accent); }
+    .burger { display: none; background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; }
+    .mobile-menu {
+      display: none; position: fixed; top: 65px; inset-x: 0; z-index: 99;
+      background: rgba(9,9,15,0.98); border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem; flex-direction: column; gap: 1.2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 1rem; font-weight: 500; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 7rem 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; width: 700px; height: 700px;
+      border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(91,106,247,0.15) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -55%);
+    }
+    .hero-inner {
+      max-width: 900px; width: 100%; position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(91,106,247,0.12); border: 1px solid rgba(91,106,247,0.3);
+      color: var(--accent2); padding: 0.4rem 1rem; border-radius: 99px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+      margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent3); box-shadow: 0 0 8px var(--accent3);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+    h1.hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.035em; margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero-title .line2 { color: transparent;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--muted);
+      max-width: 560px; margin-bottom: 2.5rem; font-weight: 300;
+      line-height: 1.7; animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent); color: #fff; padding: 0.85rem 2rem;
+      border-radius: 10px; font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 40px rgba(91,106,247,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(91,106,247,0.5); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--text); padding: 0.85rem 2rem;
+      border-radius: 10px; font-weight: 500; font-size: 1rem;
+      text-decoration: none; border: 1px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); background: rgba(91,106,247,0.07); }
+    .hero-socials {
+      display: flex; gap: 1.2rem; margin-top: 3rem;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .hero-socials a {
+      color: var(--muted); font-size: 1.2rem; transition: color 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .hero-socials a:hover { color: var(--accent2); transform: translateY(-2px); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3.5rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.5s ease both;
+      border-top: 1px solid var(--border); padding-top: 2.5rem;
+    }
+    .stat { display: flex; flex-direction: column; }
+    .stat-val {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--text); line-height: 1;
+    }
+    .stat-label { color: var(--muted); font-size: 0.82rem; margin-top: 0.3rem; }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 6rem 2rem; position: relative; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    h2.section-title {
+      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.1;
+    }
+    .section-desc { color: var(--muted); max-width: 500px; font-size: 1rem; margin-bottom: 3.5rem; line-height: 1.7; }
+
+    /* ─── FREELANCE BANNER ─── */
+    #freelance-banner {
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(91,106,247,0.12) 0%, rgba(167,139,250,0.08) 50%, rgba(56,232,200,0.06) 100%);
+      border-top: 1px solid rgba(91,106,247,0.2);
+      border-bottom: 1px solid rgba(91,106,247,0.2);
+    }
+    .banner-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .banner-left { display: flex; align-items: center; gap: 1.2rem; }
+    .banner-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(91,106,247,0.2); display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--accent2); flex-shrink: 0;
+    }
+    .banner-text strong { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; }
+    .banner-text p { color: var(--muted); font-size: 0.9rem; margin-top: 0.15rem; }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--surface); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .service-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem; transition: border-color 0.3s, transform 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { border-color: rgba(91,106,247,0.3); transform: translateY(-4px); }
+    .service-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1.2rem;
+    }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.2rem; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 6px;
+      border: 1px solid var(--border); color: var(--muted); background: var(--surface2);
+    }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { background: var(--bg); }
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem;
+      width: 1px; background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+    .exp-item { position: relative; padding-left: 2rem; margin-bottom: 3rem; }
+    .exp-dot {
+      position: absolute; left: -1.9rem; top: 0.35rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 12px var(--accent);
+    }
+    .exp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .exp-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+    .exp-company { color: var(--accent2); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; }
+    .exp-date { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
+    .exp-list { list-style: none; padding: 0; }
+    .exp-list li {
+      position: relative; padding-left: 1.2rem; color: var(--muted);
+      font-size: 0.92rem; line-height: 1.65; margin-bottom: 0.4rem;
+    }
+    .exp-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent3); font-size: 0.8rem; top: 0.1rem; }
+    .exp-list li strong { color: var(--text); }
+
+    /* ─── PROJECTS ─── */
+    #projects { background: var(--surface); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .project-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 16px;
+      padding: 1.8rem; display: flex; flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .project-card:hover { border-color: rgba(91,106,247,0.35); transform: translateY(-4px); }
+    .project-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .project-icon { font-size: 1.8rem; }
+    .project-link {
+      color: var(--muted); text-decoration: none; font-size: 0.85rem;
+      display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s;
+    }
+    .project-link:hover { color: var(--accent2); }
+    .project-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .project-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.2rem; flex: 1; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .stack-tag {
+      font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 5px;
+      font-weight: 600; letter-spacing: 0.03em;
+    }
+    .tag-blue { background: rgba(91,106,247,0.15); color: var(--accent2); }
+    .tag-green { background: rgba(56,232,200,0.12); color: var(--accent3); }
+    .tag-purple { background: rgba(167,139,250,0.15); color: #c4b5fd; }
+    .tag-orange { background: rgba(251,146,60,0.12); color: #fb923c; }
+    .tag-gray { background: var(--surface2); color: var(--muted); }
+
+    /* ─── SKILLS ─── */
+    #skills { background: var(--bg); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .skill-group {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem;
+    }
+    .skill-group h3 {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 1rem;
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .pill {
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--text); font-size: 0.82rem; padding: 0.3rem 0.75rem;
+      border-radius: 8px; font-weight: 500;
+    }
+
+    /* ─── AI SPOTLIGHT ─── */
+    #ai-focus {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .ai-card {
+      background: linear-gradient(135deg, rgba(91,106,247,0.08) 0%, rgba(167,139,250,0.05) 100%);
+      border: 1px solid rgba(91,106,247,0.2); border-radius: 20px; padding: 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .ai-card h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
+    .ai-card p { color: var(--muted); line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem; }
+    .ai-metric {
+      background: rgba(56,232,200,0.06); border: 1px solid rgba(56,232,200,0.2);
+      border-radius: 12px; padding: 1rem 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .ai-metric-val { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--accent3); }
+    .ai-metric-desc { color: var(--muted); font-size: 0.82rem; line-height: 1.4; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--bg); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-info h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .contact-info p { color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 1rem 1.2rem; border-radius: 12px; text-decoration: none;
+      color: var(--text); transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); transform: translateX(4px); }
+    .contact-link-icon { color: var(--accent2); font-size: 1.1rem; width: 1.5rem; text-align: center; }
+    .contact-link-text small { display: block; color: var(--muted); font-size: 0.78rem; margin-top: 0.1rem; }
+    .avail-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;
+    }
+    .avail-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.2rem; }
+    .avail-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); box-shadow: 0 0 8px var(--accent3); animation: pulse 2s infinite; }
+    .avail-header span { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; }
+    .avail-items { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem; }
+    .avail-item { display: flex; justify-content: space-between; align-items: center; }
+    .avail-item span:first-child { color: var(--muted); font-size: 0.88rem; }
+    .avail-val { font-size: 0.85rem; font-weight: 600; }
+    .val-green { color: var(--accent3); }
+    .val-accent { color: var(--accent2); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .form-group input, .form-group textarea, .form-group select {
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text); padding: 0.8rem 1rem; font-size: 0.95rem;
+      font-family: var(--font-body); transition: border-color 0.2s; outline: none; resize: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group select option { background: var(--surface2); }
+    .form-group textarea { min-height: 110px; }
+    .btn-send {
+      background: var(--accent); color: #fff; padding: 0.9rem 2rem;
+      border: none; border-radius: 10px; font-weight: 700; font-size: 1rem;
+      cursor: pointer; font-family: var(--font-body);
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: opacity 0.2s, transform 0.2s; box-shadow: 0 0 30px rgba(91,106,247,0.3);
+    }
+    .btn-send:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* ─── EDUCATION ─── */
+    #education { background: var(--surface); }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+    .edu-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem;
+    }
+    .edu-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; }
+    .edu-card .org { color: var(--accent2); font-size: 0.88rem; font-weight: 500; }
+    .edu-card .date { color: var(--muted); font-size: 0.8rem; margin-top: 0.2rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 2rem; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: var(--font-display); font-weight: 800; font-size: 1rem; }
+    .footer-logo span { color: var(--accent); }
+    footer p { color: var(--muted); font-size: 0.82rem; }
+    .footer-socials { display: flex; gap: 1rem; }
+    .footer-socials a { color: var(--muted); text-decoration: none; font-size: 1rem; transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--accent2); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .burger { display: block; }
+      .ai-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
+      section { padding: 4rem 1.5rem; }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- NAVIGATION -->
-  <nav class="bg-white shadow fixed w-full z-50">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="font-bold text-xl text-blue-600" data-i18n="brand">Laion L. Ferreira</a>
+<body>
 
-      <!-- DESKTOP LINKS -->
-      <div class="hidden md:flex items-center space-x-6">
-        <a href="#about" class="hover:text-blue-600" data-i18n="aboutNav">Sobre</a>
-        <a href="#skills" class="hover:text-blue-600" data-i18n="skillsNav">Habilidades</a>
-        <a href="#experience" class="hover:text-blue-600" data-i18n="expNav">Experiência</a>
-        <a href="#projects" class="hover:text-blue-600" data-i18n="projNav">Projetos</a>
-        <a href="#contact" class="hover:text-blue-600" data-i18n="contNav">Contato</a>
-        <button id="langToggleDesk" class="px-3 py-1 border rounded text-sm hover:bg-gray-100">EN</button>
-      </div>
-
-      <!-- MOBILE HAMBURGER -->
-      <button id="burger" class="md:hidden flex items-center" aria-label="menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Laion<span>.</span>dev</a>
+    <div class="nav-links">
+      <a href="#services" data-i18n="navServices">Serviços</a>
+      <a href="#experience" data-i18n="navExp">Experiência</a>
+      <a href="#projects" data-i18n="navProj">Projetos</a>
+      <a href="#skills" data-i18n="navSkills">Skills</a>
+      <button class="nav-lang" id="langBtn">EN</button>
+      <a href="#contact" class="nav-cta" data-i18n="navCta">Contratar →</a>
     </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white shadow-inner border-t">
-      <div class="px-4 py-4 flex flex-col space-y-4 fade-enter">
-        <a href="#about" class="hover:text-blue-600" data-i18n="aboutNav">Sobre</a>
-        <a href="#skills" class="hover:text-blue-600" data-i18n="skillsNav">Habilidades</a>
-        <a href="#experience" class="hover:text-blue-600" data-i18n="expNav">Experiência</a>
-        <a href="#projects" class="hover:text-blue-600" data-i18n="projNav">Projetos</a>
-        <a href="#contact" class="hover:text-blue-600" data-i18n="contNav">Contato</a>
-        <button id="langToggleMob" class="w-max px-3 py-1 border rounded text-sm hover:bg-gray-100">EN</button>
-      </div>
-    </div>
+    <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" data-i18n="navServices">Serviços</a>
+    <a href="#experience" data-i18n="navExp">Experiência</a>
+    <a href="#projects" data-i18n="navProj">Projetos</a>
+    <a href="#skills" data-i18n="navSkills">Skills</a>
+    <a href="#contact" data-i18n="navCta">Contratar</a>
+    <button class="nav-lang" id="langBtnMob">EN</button>
+  </div>
 
-  <main class="pt-20" id="home">
-    <!-- HERO -->
-    <section class="bg-blue-600 text-white py-20 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4" data-i18n="heroH">Full‑Stack .NET Developer</h1>
-      <p class="max-w-3xl mx-auto md:text-xl" data-i18n="heroSub">Transformando desafios complexos em soluções <span class="font-semibold">escaláveis</span> e <span class="font-semibold">performáticas</span> usando .NET, Cloud e DevOps.</p>
-      <a href="#contact" class="mt-8 inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100" data-i18n="heroBtn">Contrate‑me</a>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-16">
-      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-3xl font-bold mb-4" data-i18n="aboutH">Sobre mim</h2>
-          <p class="mb-4" data-i18n="aboutP1">Sou desenvolvedor Full Stack com <strong>7+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.</p>
-          <p class="mb-4" data-i18n="aboutP2">Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.</p>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-badge" data-i18n="heroBadge">✦ Disponível para Freelance</div>
+      <h1 class="hero-title">
+        <span class="line1" data-i18n="heroLine1">Soluções digitais</span><br/>
+        <span class="line2" data-i18n="heroLine2">que escalam.</span>
+      </h1>
+      <p class="hero-sub" data-i18n="heroSub">
+        Sou <strong>Laion Ferreira</strong> — Desenvolvedor Full-Stack Sênior com 7+ anos de experiência em .NET, Cloud, DevOps e IA. Transformo problemas complexos em produtos que funcionam de verdade.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary" data-i18n="heroCta1">
+          <i class="fas fa-paper-plane"></i> Falar sobre seu projeto
+        </a>
+        <a href="#projects" class="btn-secondary" data-i18n="heroCta2">
+          Ver projetos <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/laion-luis-ferreira/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/laionferreira" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:ferreiralaionl@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-val">7+</span>
+          <span class="stat-label" data-i18n="stat1">Anos de experiência</span>
         </div>
-        <div class="bg-white shadow p-6 rounded-lg">
-          <p class="font-semibold mb-2" data-i18n="quick">Resumo rápido</p>
-          <ul class="text-sm list-disc list-inside space-y-1">
-            <li>.NET 6/7/8 · ASP.NET Core · REST</li>
-            <li>Angular · React · JavaScript</li>
-            <li>Docker · Kubernetes · CI/CD</li>
-            <li>SQL Server · MongoDB</li>
+        <div class="stat">
+          <span class="stat-val">30%</span>
+          <span class="stat-label" data-i18n="stat2">Melhoria MTTR (BMW)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val">70%</span>
+          <span class="stat-label" data-i18n="stat3">↑ Performance (Employer RH)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val">99.9%</span>
+          <span class="stat-label" data-i18n="stat4">Uptime em produção</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREELANCE AVAILABILITY BANNER -->
+  <div id="freelance-banner">
+    <div class="banner-inner">
+      <div class="banner-left">
+        <div class="banner-icon">🚀</div>
+        <div class="banner-text">
+          <strong data-i18n="bannerTitle">Aberto a novos projetos freelance</strong>
+          <p data-i18n="bannerDesc">APIs, sistemas, integrações de IA, microsserviços — vamos construir algo incrível.</p>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary" data-i18n="bannerCta">
+        <i class="fas fa-calendar-check"></i> Agendar conversa
+      </a>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner fade-in">
+      <span class="section-tag" data-i18n="servicesTag">O que eu faço</span>
+      <h2 class="section-title" data-i18n="servicesTitle">Serviços disponíveis</h2>
+      <p class="section-desc" data-i18n="servicesDesc">Do backend robusto às integrações de IA — entrego soluções completas que seu negócio precisa.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(91,106,247,0.12); color:var(--accent2)"><i class="fas fa-server"></i></div>
+          <h3 data-i18n="s1Title">APIs & Backend .NET</h3>
+          <p data-i18n="s1Desc">Criação de APIs RESTful performáticas, microsserviços escaláveis e integrações com sistemas legados usando .NET/C#.</p>
+          <div class="service-tags">
+            <span class="tag">.NET 8</span><span class="tag">C#</span><span class="tag">Microserviços</span><span class="tag">REST</span><span class="tag">SQL</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(56,232,200,0.1); color:var(--accent3)"><i class="fas fa-brain"></i></div>
+          <h3 data-i18n="s2Title">Integração de IA & RAG</h3>
+          <p data-i18n="s2Desc">Sistemas de busca inteligente, chatbots com contexto, pipelines RAG e integração de LLMs nos seus sistemas.</p>
+          <div class="service-tags">
+            <span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Vector DB</span><span class="tag">Python</span><span class="tag">OpenAI</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(251,146,60,0.1); color:#fb923c"><i class="fas fa-cloud"></i></div>
+          <h3 data-i18n="s3Title">Cloud & DevOps</h3>
+          <p data-i18n="s3Desc">Infraestrutura na nuvem, containerização com Docker/Kubernetes, CI/CD e pipelines de deploy automatizado.</p>
+          <div class="service-tags">
+            <span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">CI/CD</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(167,139,250,0.1); color:#c4b5fd"><i class="fas fa-layer-group"></i></div>
+          <h3 data-i18n="s4Title">Aplicações Full-Stack</h3>
+          <p data-i18n="s4Desc">Desenvolvimento completo: do banco de dados à interface web moderna com React ou Angular.</p>
+          <div class="service-tags">
+            <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Angular</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(52,211,153,0.1); color:#34d399"><i class="fas fa-eye"></i></div>
+          <h3 data-i18n="s5Title">Observabilidade & Performance</h3>
+          <p data-i18n="s5Desc">Monitoramento, dashboards, alertas e otimização de performance para garantir a saúde dos seus sistemas.</p>
+          <div class="service-tags">
+            <span class="tag">Grafana</span><span class="tag">Prometheus</span><span class="tag">OpenTelemetry</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(251,191,36,0.1); color:#fbbf24"><i class="fas fa-plug"></i></div>
+          <h3 data-i18n="s6Title">Integrações & Automações</h3>
+          <p data-i18n="s6Desc">Integração com APIs de terceiros, gateways de pagamento (PIX), sistemas de mensageria e automação de processos.</p>
+          <div class="service-tags">
+            <span class="tag">RabbitMQ</span><span class="tag">Redis</span><span class="tag">PIX</span><span class="tag">OAuth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner fade-in">
+      <span class="section-tag" data-i18n="expTag">Trajetória</span>
+      <h2 class="section-title" data-i18n="expTitle">Experiência profissional</h2>
+      <p class="section-desc" data-i18n="expDesc">7+ anos entregando resultados reais em empresas de tecnologia, finanças e mobilidade.</p>
+      <div class="timeline">
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-header">
+            <div>
+              <div class="exp-title" data-i18n="exp1Title">Senior Full-Stack Developer</div>
+              <div class="exp-company">BMW Group</div>
+            </div>
+            <div class="exp-date" data-i18n="exp1Date">Ago 2023 – Presente • Remoto</div>
+          </div>
+          <ul class="exp-list">
+            <li data-i18n="exp1a">Portal do Cliente Financeiro multinacional — milhares de usuários nas Américas.</li>
+            <li data-i18n="exp1b">Stack de observabilidade com Grafana & Prometheus: <strong>–30% no MTTR</strong>.</li>
+            <li data-i18n="exp1c">Motor de notificações escalável com comunicação em tempo real.</li>
+            <li data-i18n="exp1d">Orquestração de contêineres com Kubernetes em arquitetura automotiva.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-header">
+            <div>
+              <div class="exp-title" data-i18n="exp2Title">Full Stack Developer</div>
+              <div class="exp-company">Employer RH</div>
+            </div>
+            <div class="exp-date" data-i18n="exp2Date">Jul 2021 – Ago 2023 • Brasil</div>
+          </div>
+          <ul class="exp-list">
+            <li data-i18n="exp2a">Serviço assíncrono com RabbitMQ + .NET: <strong>+70% de performance</strong> em relatórios.</li>
+            <li data-i18n="exp2b">Sistema de ponto eletrônico com reconhecimento facial (AWS Rekognition): <strong>98,5% de precisão</strong>.</li>
+            <li data-i18n="exp2c">Containerização com Docker + Kubernetes: <strong>–40% no tempo de deploy</strong>.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-header">
+            <div>
+              <div class="exp-title" data-i18n="exp3Title">Software Engineer</div>
+              <div class="exp-company">Meta IT</div>
+            </div>
+            <div class="exp-date" data-i18n="exp3Date">Mar 2020 – Jul 2021 • Brasil</div>
+          </div>
+          <ul class="exp-list">
+            <li data-i18n="exp3a">Solução PIX end-to-end: <strong>99,9% de taxa de sucesso</strong> em transações.</li>
+            <li data-i18n="exp3b">Redesign do site corporativo: <strong>+30% nas consultas de vendas</strong>.</li>
+            <li data-i18n="exp3c">Segurança web aprimorada: <strong>–90% de incidentes</strong>.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-header">
+            <div>
+              <div class="exp-title" data-i18n="exp4Title">Full Stack Developer</div>
+              <div class="exp-company">MPS Informática</div>
+            </div>
+            <div class="exp-date" data-i18n="exp4Date">Jul 2018 – Mar 2020 • Brasil</div>
+          </div>
+          <ul class="exp-list">
+            <li data-i18n="exp4a">Redução de bugs em produção em <strong>70%</strong> com análise de fluxo e testes unitários.</li>
+            <li data-i18n="exp4b">Otimização de procedures SQL: <strong>+60% de performance</strong>.</li>
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="bg-gray-100 py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="skillsH">Habilidades Técnicas</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white shadow p-6 rounded-lg">
-            <h3 class="font-semibold text-lg mb-2">Back‑End</h3>
-            <ul class="list-disc list-inside text-sm space-y-1">
-              <li>.NET 6/7/8, C#</li>
-              <li>ASP.NET Core Web API & MVC</li>
-              <li>Microserviços, RabbitMQ, gRPC</li>
-              <li>Entity Framework, Dapper</li>
-            </ul>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner fade-in">
+      <span class="section-tag" data-i18n="projTag">Portfólio</span>
+      <h2 class="section-title" data-i18n="projTitle">Projetos em destaque</h2>
+      <p class="section-desc" data-i18n="projDesc">Soluções reais entregues em produção — de sistemas IA a plataformas de pagamento.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon">🤖</span>
+            <a href="https://rag.sproutmidia.com.br/" target="_blank" class="project-link">Ver ao vivo <i class="fas fa-arrow-up-right-from-square"></i></a>
           </div>
-          <div class="bg-white shadow p-6 rounded-lg">
-            <h3 class="font-semibold text-lg mb-2">Front‑End & Mobile</h3>
-            <ul class="list-disc list-inside text-sm space-y-1">
-              <li>Angular, React, JavaScript/TypeScript</li>
-              <li>HTML5, CSS3, Tailwind</li>
-              <li>Xamarin, MAUI, React Native</li>
-            </ul>
+          <h3 data-i18n="p1Title">RAG Sprout Mídia</h3>
+          <p data-i18n="p1Desc">Sistema de busca e recuperação inteligente de documentos com IA. Integração de LLM e OpenSearch para respostas precisas em linguagem natural.</p>
+          <div class="project-stack">
+            <span class="stack-tag tag-green">Python</span>
+            <span class="stack-tag tag-purple">LangChain</span>
+            <span class="stack-tag tag-blue">OpenSearch</span>
+            <span class="stack-tag tag-gray">RAG</span>
           </div>
-          <div class="bg-white shadow p-6 rounded-lg">
-            <h3 class="font-semibold text-lg mb-2">DevOps / Cloud</h3>
-            <ul class="list-disc list-inside text-sm space-y-1">
-              <li>Docker & Kubernetes</li>
-              <li>Azure DevOps, AWS</li>
-              <li>CI/CD pipelines, GitHub Actions</li>
-              <li>Monitoring: Application Insights, ElasticSearch</li>
-            </ul>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon">✈️</span>
+            <a href="https://casalsemagencia.com.br/alerta-voos-promocoes-milhas-personalizado/" target="_blank" class="project-link">Ver ao vivo <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <h3 data-i18n="p2Title">Alerta Voos</h3>
+          <p data-i18n="p2Desc">Plataforma de promoções aéreas com alertas personalizados. Backend robusto em Python + .NET, mensageria com RabbitMQ e banco MongoDB hospedado na AWS.</p>
+          <div class="project-stack">
+            <span class="stack-tag tag-green">Python</span>
+            <span class="stack-tag tag-blue">.NET</span>
+            <span class="stack-tag tag-purple">RabbitMQ</span>
+            <span class="stack-tag tag-orange">AWS</span>
+            <span class="stack-tag tag-gray">MongoDB</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon">📚</span>
+            <a href="#" class="project-link">GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <h3 data-i18n="p3Title">AI Documentation Assistant</h3>
+          <p data-i18n="p3Desc">Sistema RAG pronto para produção. Busca híbrida com +40% de relevância versus abordagem vetorial pura. LangChain + Vector Databases.</p>
+          <div class="project-stack">
+            <span class="stack-tag tag-purple">LangChain</span>
+            <span class="stack-tag tag-blue">Vector DB</span>
+            <span class="stack-tag tag-green">Python</span>
+            <span class="stack-tag tag-gray">RAG</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon">⏱️</span>
+            <a href="https://github.com/laionferreira/ApiTime-Tracker" target="_blank" class="project-link">GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <h3 data-i18n="p4Title">ApiTime-Tracker</h3>
+          <p data-i18n="p4Desc">API REST em .NET 8 para controle de ponto. JWT auth, Docker, CI/CD via GitHub Actions e 95% de cobertura de testes.</p>
+          <div class="project-stack">
+            <span class="stack-tag tag-blue">.NET 8</span>
+            <span class="stack-tag tag-gray">Docker</span>
+            <span class="stack-tag tag-gray">CI/CD</span>
+            <span class="stack-tag tag-purple">JWT</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon">💳</span>
+            <a href="https://github.com/laionferreira/Pix-Gateway" target="_blank" class="project-link">GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <h3 data-i18n="p5Title">Pix-Gateway</h3>
+          <p data-i18n="p5Desc">Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas. Foco em segurança e confiabilidade.</p>
+          <div class="project-stack">
+            <span class="stack-tag tag-blue">.NET</span>
+            <span class="stack-tag tag-purple">RabbitMQ</span>
+            <span class="stack-tag tag-gray">Clean Arch</span>
+            <span class="stack-tag tag-orange">PIX</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="expH">Experiência Profissional</h2>
-        <div class="space-y-8">
-          <!-- EMPLOYER RH -->
-          <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex justify-between flex-wrap gap-2">
-              <h3 class="font-semibold text-xl">Full Stack Developer – Employer RH</h3>
-              <span class="text-sm text-gray-600">Jul 2023 – Presente</span>
-            </div>
-            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li data-i18n="emp1l1">Transformou relatórios síncronos em assíncronos, melhorando performance em 70%.</li>
-              <li data-i18n="emp1l2">Arquitetou microserviços com RabbitMQ, Docker & Kubernetes.</li>
-              <li data-i18n="emp1l3">Desenvolveu sistema de ponto por reconhecimento facial com AWS Rekognition & Xamarin.</li>
-              <li data-i18n="emp1l4">Implementou módulo de geração de relatórios salvo em Azure Blob Storage.</li>
-              <li data-i18n="emp1l5">Refatorou autenticação, aumentando rastreabilidade e segurança.</li>
-            </ul>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner fade-in">
+      <span class="section-tag" data-i18n="skillsTag">Tecnologias</span>
+      <h2 class="section-title" data-i18n="skillsTitle">Stack técnico</h2>
+      <p class="section-desc" data-i18n="skillsDesc">Ferramentas que uso no dia a dia para entregar software de qualidade.</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3 data-i18n="sg1">Linguagens & Frameworks</h3>
+          <div class="skill-pills">
+            <span class="pill">C# / .NET</span><span class="pill">Python</span><span class="pill">Node.js</span>
+            <span class="pill">TypeScript</span><span class="pill">React</span><span class="pill">Angular</span>
           </div>
-
-          <!-- META IT -->
-          <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex justify-between flex-wrap gap-2">
-              <h3 class="font-semibold text-xl">Software Engineer – Meta IT</h3>
-              <span class="text-sm text-gray-600">Mar 2022 – Jul 2023</span>
-            </div>
-            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li data-i18n="emp2l1">Desenvolveu microserviços e integrações usando .NET MVC e RabbitMQ.</li>
-              <li data-i18n="emp2l2">Implementou PIX end‑to‑end, incluindo back‑end, integração bancária e front‑end.</li>
-              <li data-i18n="emp2l3">Melhorou segurança em 2 sites, reduzindo incidentes em 90%.</li>
-              <li data-i18n="emp2l4">Redesign visual do site, gerando 30% mais leads.</li>
-            </ul>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="sg2">Cloud & DevOps</h3>
+          <div class="skill-pills">
+            <span class="pill">Azure</span><span class="pill">AWS</span><span class="pill">Docker</span>
+            <span class="pill">Kubernetes</span><span class="pill">CI/CD</span>
           </div>
-
-          <!-- MPS INFORMATICA -->
-          <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex justify-between flex-wrap gap-2">
-              <h3 class="font-semibold text-xl">Full Stack Developer – MPS Informática</h3>
-              <span class="text-sm text-gray-600">Jul 2018 – Mar 2022</span>
-            </div>
-            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
-              <li data-i18n="emp3l1">Reduziu bugs em 70% através de análise de fluxo e testes unitários.</li>
-              <li data-i18n="emp3l2">Otimização de procedures e views: +60% de performance.</li>
-              <li data-i18n="emp3l3">Front‑end AngularJS e full‑stack .NET WebForms.</li>
-            </ul>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="sg3">Bancos de Dados</h3>
+          <div class="skill-pills">
+            <span class="pill">SQL Server</span><span class="pill">PostgreSQL</span><span class="pill">MongoDB</span>
+            <span class="pill">Oracle</span><span class="pill">Redis</span><span class="pill">Vector DB</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="sg4">IA & ML</h3>
+          <div class="skill-pills">
+            <span class="pill">LangChain</span><span class="pill">RAG Pipelines</span>
+            <span class="pill">Prompt Eng.</span><span class="pill">OpenSearch</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="sg5">Mensageria & APIs</h3>
+          <div class="skill-pills">
+            <span class="pill">RabbitMQ</span><span class="pill">RESTful</span>
+            <span class="pill">Event-Driven</span><span class="pill">OAuth 2.0</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="sg6">Observabilidade</h3>
+          <div class="skill-pills">
+            <span class="pill">Grafana</span><span class="pill">Prometheus</span>
+            <span class="pill">OpenTelemetry</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="bg-gray-100 py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10" data-i18n="projectsH">Projetos em Destaque</h2>
-        <!-- CONTINUATION OF PROJECTS SECTION -->
-        <p class="text-center text-gray-600 mb-8" data-i18n="projectsIntro">Seguem alguns projetos pessoais / open source. Mais em meu <a href="https://github.com/" target="_blank" class="text-blue-600 underline">GitHub</a>.</p>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2" data-i18n="proj1Title">ApiTime‑Tracker</h3>
-            <p class="text-sm flex-grow" data-i18n="proj1Desc">API REST em .NET 8 para controle de ponto com autenticação JWT, Docker, CI/CD GitHub Actions e cobertura de testes 95%.</p>
-          </div>
-          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2" data-i18n="proj2Title">Pix‑Gateway</h3>
-            <p class="text-sm flex-grow" data-i18n="proj2Desc">Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas.</p>
-          </div>
-          <div class="bg-white shadow rounded-lg p-6 flex flex-col">
-            <h3 class="font-semibold text-xl mb-2" data-i18n="proj3Title">K8s‑Metrics‑Dashboard</h3>
-            <p class="text-sm flex-grow" data-i18n="proj3Desc">Dashboard em React + SignalR exibindo métricas de microserviços .NET em tempo real, implantado em AKS.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="py-16">
-      <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-6" data-i18n="contactH">Entre em Contato</h2>
-        <p class="mb-6" data-i18n="contactP">Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo.</p>
-        <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
-          <a href="mailto:ferreiralaionl@gmail.com" class="flex items-center space-x-2 text-blue-600 hover:underline">
-            <span>Email</span>
+  <!-- AI SPOTLIGHT -->
+  <section id="ai-focus">
+    <div class="section-inner fade-in">
+      <span class="section-tag" data-i18n="aiTag">Especialidade em destaque</span>
+      <div class="ai-card">
+        <div>
+          <h3 data-i18n="aiTitle">IA que funciona em produção — não só em demos.</h3>
+          <p data-i18n="aiP1">Construí sistemas RAG (Retrieval-Augmented Generation) do zero até produção, usando <strong>LangChain</strong>, <strong>Vector Databases</strong> e mecanismos de busca híbrida que entregam respostas realmente relevantes.</p>
+          <p data-i18n="aiP2">Se você precisa de um chatbot inteligente, buscas em documentos técnicos ou automação com LLMs nos seus processos — posso ajudar a sair do protótipo para o produto real.</p>
+          <a href="#contact" class="btn-primary" style="margin-top:1.5rem; display:inline-flex" data-i18n="aiCta">
+            <i class="fas fa-comments"></i> Vamos conversar sobre IA
           </a>
-          <span class="hidden md:block">|</span>
-          <a href="https://www.linkedin.com/in/laion-luis-ferreira/" target="_blank" class="flex items-center space-x-2 text-blue-600 hover:underline">
-            <span>LinkedIn</span>
-          </a>
-          <span class="hidden md:block">|</span>
-          <a href="tel:+5541995663746" class="flex items-center space-x-2 text-blue-600 hover:underline">
-            <span>Telefone</span>
-          </a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="ai-metric">
+            <div class="ai-metric-val">+40%</div>
+            <div class="ai-metric-desc" data-i18n="aiM1">Relevância com busca híbrida vs. vetorial pura</div>
+          </div>
+          <div class="ai-metric">
+            <div class="ai-metric-val">98.5%</div>
+            <div class="ai-metric-desc" data-i18n="aiM2">Precisão em reconhecimento facial (AWS Rekognition)</div>
+          </div>
+          <div class="ai-metric">
+            <div class="ai-metric-val">2 apps</div>
+            <div class="ai-metric-desc" data-i18n="aiM3">Sistemas de IA ativos em produção no portfólio</div>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner fade-in">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-tag" data-i18n="contTag">Contato</span>
+          <h2 data-i18n="contTitle">Vamos construir algo juntos?</h2>
+          <p data-i18n="contDesc">Estou disponível para projetos freelance, consultorias e parcerias. Me conta o que você precisa e encontramos o melhor caminho.</p>
+          <div class="contact-links">
+            <a href="mailto:ferreiralaionl@gmail.com" class="contact-link">
+              <span class="contact-link-icon"><i class="fas fa-envelope"></i></span>
+              <div>
+                <strong>ferreiralaionl@gmail.com</strong>
+                <small data-i18n="contEmail">Email profissional</small>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/laion-luis-ferreira/" target="_blank" class="contact-link">
+              <span class="contact-link-icon"><i class="fab fa-linkedin"></i></span>
+              <div>
+                <strong>laion-luis-ferreira</strong>
+                <small>LinkedIn</small>
+              </div>
+            </a>
+            <a href="tel:+5541995663746" class="contact-link">
+              <span class="contact-link-icon"><i class="fas fa-phone"></i></span>
+              <div>
+                <strong>+55 41 99566-3746</strong>
+                <small data-i18n="contPhone">WhatsApp / Telefone</small>
+              </div>
+            </a>
+          </div>
+          <div class="avail-card" style="margin-top:2rem;">
+            <div class="avail-header">
+              <div class="avail-dot"></div>
+              <span data-i18n="availTitle">Disponibilidade atual</span>
+            </div>
+            <div class="avail-items">
+              <div class="avail-item"><span data-i18n="av1">Projetos freelance</span><span class="avail-val val-green" data-i18n="av1v">✓ Disponível</span></div>
+              <div class="avail-item"><span data-i18n="av2">Consultoria técnica</span><span class="avail-val val-green" data-i18n="av2v">✓ Disponível</span></div>
+              <div class="avail-item"><span data-i18n="av3">Contratação remota</span><span class="avail-val val-accent" data-i18n="av3v">→ Aberto a oportunidades</span></div>
+              <div class="avail-item"><span data-i18n="av4">Resposta em</span><span class="avail-val val-green" data-i18n="av4v">~24 horas</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="avail-card">
+            <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;" data-i18n="formTitle">Envie uma mensagem</h3>
+            <div class="contact-form">
+              <div class="form-group">
+                <label data-i18n="formName">NOME</label>
+                <input type="text" placeholder="Seu nome" id="fName"/>
+              </div>
+              <div class="form-group">
+                <label data-i18n="formEmail">EMAIL</label>
+                <input type="email" placeholder="seu@email.com" id="fEmail"/>
+              </div>
+              <div class="form-group">
+                <label data-i18n="formService">TIPO DE PROJETO</label>
+                <select id="fService">
+                  <option value="" data-i18n="fOpt0">Selecione...</option>
+                  <option value="api" data-i18n="fOpt1">API / Backend .NET</option>
+                  <option value="ai" data-i18n="fOpt2">Integração de IA / RAG</option>
+                  <option value="cloud" data-i18n="fOpt3">Cloud / DevOps</option>
+                  <option value="fullstack" data-i18n="fOpt4">Aplicação Full-Stack</option>
+                  <option value="other" data-i18n="fOpt5">Outro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label data-i18n="formMsg">MENSAGEM</label>
+                <textarea placeholder="Me conte sobre seu projeto..." id="fMsg"></textarea>
+              </div>
+              <button class="btn-send" onclick="sendEmail()">
+                <i class="fas fa-paper-plane"></i> <span data-i18n="formSend">Enviar mensagem</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="padding:3rem 2rem;">
+    <div class="section-inner fade-in">
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div style="font-size:1.5rem;margin-bottom:.6rem;">🎓</div>
+          <h3 data-i18n="edu1">Bacharelado em Ciência da Computação</h3>
+          <div class="org">Universidade Federal do Paraná (UFPR)</div>
+          <div class="date">2014 – 2018</div>
+        </div>
+        <div class="edu-card">
+          <div style="font-size:1.5rem;margin-bottom:.6rem;">☁️</div>
+          <h3 data-i18n="edu2">Microsoft Certified: Azure Fundamentals</h3>
+          <div class="org">Microsoft</div>
+          <div class="date" data-i18n="edu2Date">Emitido em 2022</div>
+        </div>
+        <div class="edu-card">
+          <div style="font-size:1.5rem;margin-bottom:.6rem;">🌐</div>
+          <h3 data-i18n="edu3">Idiomas</h3>
+          <div class="org" data-i18n="edu3Desc">Português (Nativo) · Inglês (Profissional)</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
-  <footer class="bg-white text-center py-4 shadow-inner">
-    <small class="text-gray-600">© <span id="year"></span> Laion Luis Ferreira – Desenvolvedor .NET</small>
+  <footer>
+    <span class="footer-logo">Laion<span>.</span>dev</span>
+    <p>© <span id="year"></span> Laion Luis Ferreira</p>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/laion-luis-ferreira/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/laionferreira" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:ferreiralaionl@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const translations = {
+    // ─── TRANSLATIONS ───
+    const T = {
       pt: {
-        brand: "Laion L. Ferreira",
-        aboutNav: "Sobre",
-        skillsNav: "Habilidades",
-        expNav: "Experiência",
-        projNav: "Projetos",
-        contNav: "Contato",
-    
-        heroH: "Full-Stack .NET Developer",
-        heroSub: "Transformando desafios complexos em soluções <span class='font-semibold'>escaláveis</span> e <span class='font-semibold'>performáticas</span> usando .NET, Cloud e DevOps.",
-        heroBtn: "Contrate-me",
-    
-        aboutH: "Sobre mim",
-        aboutP1: "Sou desenvolvedor Full Stack com <strong>7+ anos de experiência</strong>, focado em <strong>.NET/C#</strong>, microserviços e cloud.",
-        aboutP2: "Especializado em <strong>Kubernetes</strong>, <strong>Docker</strong> e <strong>NoSQL</strong>, reduzi custos e melhorei performance em até 70%.",
-        quick: "Resumo rápido",
-    
-        skillsH: "Habilidades Técnicas",
-    
-        /* Experiência – título da seção */
-        expH: "Experiência Profissional",
-        /* EMPLOYER RH */
-        emp1l1: "Transformou relatórios síncronos em assíncronos, melhorando performance em 70%.",
-        emp1l2: "Arquitetou microserviços com RabbitMQ, Docker & Kubernetes.",
-        emp1l3: "Desenvolveu sistema de ponto por reconhecimento facial com AWS Rekognition & Xamarin.",
-        emp1l4: "Implementou módulo de geração de relatórios salvo em Azure Blob Storage.",
-        emp1l5: "Refatorou autenticação, aumentando rastreabilidade e segurança.",
-        /* META IT */
-        emp2l1: "Desenvolveu microserviços e integrações usando .NET MVC e RabbitMQ.",
-        emp2l2: "Implementou PIX end-to-end, incluindo back-end, integração bancária e front-end.",
-        emp2l3: "Melhorou segurança em 2 sites, reduzindo incidentes em 90%.",
-        emp2l4: "Redesign visual do site, gerando 30% mais leads.",
-        /* MPS Informática */
-        emp3l1: "Reduziu bugs em 70% através de análise de fluxo e testes unitários.",
-        emp3l2: "Otimização de procedures e views: +60% de performance.",
-        emp3l3: "Front-end AngularJS e full-stack .NET WebForms.",
-    
-        /* Projetos */
-        projectsH: "Projetos em Destaque",
-        projectsIntro: "Seguem alguns projetos pessoais / open source. Mais em meu <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",
-        proj1Title: "ApiTime-Tracker",
-        proj1Desc: "API REST em .NET 8 para controle de ponto com autenticação JWT, Docker, CI/CD GitHub Actions e cobertura de testes 95%.",
-        proj2Title: "Pix-Gateway",
-        proj2Desc: "Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas.",
-        proj3Title: "K8s-Metrics-Dashboard",
-        proj3Desc: "Dashboard em React + SignalR exibindo métricas de microserviços .NET em tempo real, implantado em AKS.",
-    
-        /* Contato */
-        contactH: "Entre em Contato",
-        contactP: "Interessado em colaborar ou contratar meus serviços? Entre em contato pelos canais abaixo."
+        navServices:'Serviços', navExp:'Experiência', navProj:'Projetos', navSkills:'Skills', navCta:'Contratar →',
+        heroBadge:'✦ Disponível para Freelance',
+        heroLine1:'Soluções digitais', heroLine2:'que escalam.',
+        heroSub:'Sou <strong>Laion Ferreira</strong> — Desenvolvedor Full-Stack Sênior com 7+ anos de experiência em .NET, Cloud, DevOps e IA. Transformo problemas complexos em produtos que funcionam de verdade.',
+        heroCta1:'<i class="fas fa-paper-plane"></i> Falar sobre seu projeto',
+        heroCta2:'Ver projetos <i class="fas fa-arrow-right"></i>',
+        stat1:'Anos de experiência', stat2:'Melhoria MTTR (BMW)', stat3:'↑ Performance (Employer RH)', stat4:'Uptime em produção',
+        bannerTitle:'Aberto a novos projetos freelance',
+        bannerDesc:'APIs, sistemas, integrações de IA, microsserviços — vamos construir algo incrível.',
+        bannerCta:'<i class="fas fa-calendar-check"></i> Agendar conversa',
+        servicesTag:'O que eu faço', servicesTitle:'Serviços disponíveis',
+        servicesDesc:'Do backend robusto às integrações de IA — entrego soluções completas que seu negócio precisa.',
+        s1Title:'APIs & Backend .NET', s1Desc:'Criação de APIs RESTful performáticas, microsserviços escaláveis e integrações com sistemas legados usando .NET/C#.',
+        s2Title:'Integração de IA & RAG', s2Desc:'Sistemas de busca inteligente, chatbots com contexto, pipelines RAG e integração de LLMs nos seus sistemas.',
+        s3Title:'Cloud & DevOps', s3Desc:'Infraestrutura na nuvem, containerização com Docker/Kubernetes, CI/CD e pipelines de deploy automatizado.',
+        s4Title:'Aplicações Full-Stack', s4Desc:'Desenvolvimento completo: do banco de dados à interface web moderna com React ou Angular.',
+        s5Title:'Observabilidade & Performance', s5Desc:'Monitoramento, dashboards, alertas e otimização de performance para garantir a saúde dos seus sistemas.',
+        s6Title:'Integrações & Automações', s6Desc:'Integração com APIs de terceiros, gateways de pagamento (PIX), sistemas de mensageria e automação de processos.',
+        expTag:'Trajetória', expTitle:'Experiência profissional',
+        expDesc:'7+ anos entregando resultados reais em empresas de tecnologia, finanças e mobilidade.',
+        exp1Title:'Senior Full-Stack Developer', exp1Date:'Ago 2023 – Presente • Remoto',
+        exp1a:'Portal do Cliente Financeiro multinacional — milhares de usuários nas Américas.',
+        exp1b:'Stack de observabilidade com Grafana & Prometheus: <strong>–30% no MTTR</strong>.',
+        exp1c:'Motor de notificações escalável com comunicação em tempo real.',
+        exp1d:'Orquestração de contêineres com Kubernetes em arquitetura automotiva.',
+        exp2Title:'Full Stack Developer', exp2Date:'Jul 2021 – Ago 2023 • Brasil',
+        exp2a:'Serviço assíncrono com RabbitMQ + .NET: <strong>+70% de performance</strong> em relatórios.',
+        exp2b:'Sistema de ponto eletrônico com reconhecimento facial (AWS Rekognition): <strong>98,5% de precisão</strong>.',
+        exp2c:'Containerização com Docker + Kubernetes: <strong>–40% no tempo de deploy</strong>.',
+        exp3Title:'Software Engineer', exp3Date:'Mar 2020 – Jul 2021 • Brasil',
+        exp3a:'Solução PIX end-to-end: <strong>99,9% de taxa de sucesso</strong> em transações.',
+        exp3b:'Redesign do site corporativo: <strong>+30% nas consultas de vendas</strong>.',
+        exp3c:'Segurança web aprimorada: <strong>–90% de incidentes</strong>.',
+        exp4Title:'Full Stack Developer', exp4Date:'Jul 2018 – Mar 2020 • Brasil',
+        exp4a:'Redução de bugs em produção em <strong>70%</strong> com análise de fluxo e testes unitários.',
+        exp4b:'Otimização de procedures SQL: <strong>+60% de performance</strong>.',
+        projTag:'Portfólio', projTitle:'Projetos em destaque',
+        projDesc:'Soluções reais entregues em produção — de sistemas IA a plataformas de pagamento.',
+        p1Title:'RAG Sprout Mídia', p1Desc:'Sistema de busca e recuperação inteligente de documentos com IA. Integração de LLM e OpenSearch para respostas precisas em linguagem natural.',
+        p2Title:'Alerta Voos', p2Desc:'Plataforma de promoções aéreas com alertas personalizados. Backend robusto em Python + .NET, mensageria com RabbitMQ e banco MongoDB hospedado na AWS.',
+        p3Title:'AI Documentation Assistant', p3Desc:'Sistema RAG pronto para produção. Busca híbrida com +40% de relevância versus abordagem vetorial pura. LangChain + Vector Databases.',
+        p4Title:'ApiTime-Tracker', p4Desc:'API REST em .NET 8 para controle de ponto. JWT auth, Docker, CI/CD via GitHub Actions e 95% de cobertura de testes.',
+        p5Title:'Pix-Gateway', p5Desc:'Microserviço de pagamentos PIX com Clean Architecture, Dapper, RabbitMQ e integrações bancárias simuladas. Foco em segurança e confiabilidade.',
+        skillsTag:'Tecnologias', skillsTitle:'Stack técnico',
+        skillsDesc:'Ferramentas que uso no dia a dia para entregar software de qualidade.',
+        sg1:'Linguagens & Frameworks', sg2:'Cloud & DevOps', sg3:'Bancos de Dados', sg4:'IA & ML', sg5:'Mensageria & APIs', sg6:'Observabilidade',
+        aiTag:'Especialidade em destaque',
+        aiTitle:'IA que funciona em produção — não só em demos.',
+        aiP1:'Construí sistemas RAG (Retrieval-Augmented Generation) do zero até produção, usando <strong>LangChain</strong>, <strong>Vector Databases</strong> e mecanismos de busca híbrida que entregam respostas realmente relevantes.',
+        aiP2:'Se você precisa de um chatbot inteligente, buscas em documentos técnicos ou automação com LLMs nos seus processos — posso ajudar a sair do protótipo para o produto real.',
+        aiCta:'<i class="fas fa-comments"></i> Vamos conversar sobre IA',
+        aiM1:'Relevância com busca híbrida vs. vetorial pura', aiM2:'Precisão em reconhecimento facial (AWS Rekognition)', aiM3:'Sistemas de IA ativos em produção no portfólio',
+        contTag:'Contato', contTitle:'Vamos construir algo juntos?',
+        contDesc:'Estou disponível para projetos freelance, consultorias e parcerias. Me conta o que você precisa e encontramos o melhor caminho.',
+        contEmail:'Email profissional', contPhone:'WhatsApp / Telefone',
+        availTitle:'Disponibilidade atual',
+        av1:'Projetos freelance', av1v:'✓ Disponível', av2:'Consultoria técnica', av2v:'✓ Disponível',
+        av3:'Contratação remota', av3v:'→ Aberto a oportunidades', av4:'Resposta em', av4v:'~24 horas',
+        formTitle:'Envie uma mensagem', formName:'NOME', formEmail:'EMAIL', formService:'TIPO DE PROJETO', formMsg:'MENSAGEM', formSend:'Enviar mensagem',
+        fOpt0:'Selecione...', fOpt1:'API / Backend .NET', fOpt2:'Integração de IA / RAG', fOpt3:'Cloud / DevOps', fOpt4:'Aplicação Full-Stack', fOpt5:'Outro',
+        edu1:'Bacharelado em Ciência da Computação', edu2:'Microsoft Certified: Azure Fundamentals', edu2Date:'Emitido em 2022',
+        edu3:'Idiomas', edu3Desc:'Português (Nativo) · Inglês (Profissional)',
       },
-    
       en: {
-        brand: "Laion L. Ferreira",
-        aboutNav: "About",
-        skillsNav: "Skills",
-        expNav: "Experience",
-        projNav: "Projects",
-        contNav: "Contact",
-    
-        heroH: ".NET Full-Stack Developer",
-        heroSub: "Transforming complex challenges into <span class='font-semibold'>scalable</span> and <span class='font-semibold'>high-performance</span> solutions using .NET, Cloud and DevOps.",
-        heroBtn: "Hire Me",
-    
-        aboutH: "About Me",
-        aboutP1: "I am a Full Stack developer with <strong>7+ years of experience</strong>, focused on <strong>.NET/C#</strong>, microservices and cloud.",
-        aboutP2: "Specialized in <strong>Kubernetes</strong>, <strong>Docker</strong> and <strong>NoSQL</strong>, I reduced costs and improved performance by up to 70%.",
-        quick: "Quick Summary",
-    
-        skillsH: "Technical Skills",
-    
-        /* Experience – section title */
-        expH: "Professional Experience",
-        /* EMPLOYER RH */
-        emp1l1: "Converted synchronous reports to asynchronous, boosting performance by 70%.",
-        emp1l2: "Architected microservices with RabbitMQ, Docker & Kubernetes.",
-        emp1l3: "Built a facial-recognition time-tracking system with AWS Rekognition & Xamarin.",
-        emp1l4: "Implemented reporting module stored in Azure Blob Storage.",
-        emp1l5: "Refactored authentication, increasing traceability and security.",
-        /* META IT */
-        emp2l1: "Developed microservices and integrations using .NET MVC and RabbitMQ.",
-        emp2l2: "Implemented end-to-end PIX payments, including back-end, bank integration and front-end.",
-        emp2l3: "Enhanced security on two websites, cutting incidents by 90%.",
-        emp2l4: "Redesigned main website, generating 30% more leads.",
-        /* MPS Informática */
-        emp3l1: "Cut bugs by 70% through flow analysis and unit testing.",
-        emp3l2: "Optimized procedures and views, achieving 60% faster performance.",
-        emp3l3: "Worked on AngularJS front-end and full-stack .NET WebForms.",
-    
-        /* Projects */
-        projectsH: "Featured Projects",
-        projectsIntro: "Here are some personal / open-source projects. More on my <a href='https://github.com/' target='_blank' class='text-blue-600 underline'>GitHub</a>.",
-        proj1Title: "ApiTime-Tracker",
-        proj1Desc: ".NET 8 REST API for time tracking with JWT auth, Docker, GitHub Actions CI/CD and 95% test coverage.",
-        proj2Title: "Pix-Gateway",
-        proj2Desc: "PIX payment microservice using Clean Architecture, Dapper, RabbitMQ and simulated bank integrations.",
-        proj3Title: "K8s-Metrics-Dashboard",
-        proj3Desc: "React + SignalR dashboard showing real-time metrics of .NET microservices deployed on AKS.",
-    
-        /* Contact */
-        contactH: "Get in Touch",
-        contactP: "Interested in collaborating or hiring my services? Reach me through the channels below."
+        navServices:'Services', navExp:'Experience', navProj:'Projects', navSkills:'Skills', navCta:'Hire me →',
+        heroBadge:'✦ Available for Freelance',
+        heroLine1:'Digital solutions', heroLine2:'that scale.',
+        heroSub:'I\'m <strong>Laion Ferreira</strong> — Senior Full-Stack Developer with 7+ years of experience in .NET, Cloud, DevOps and AI. I turn complex problems into products that actually work.',
+        heroCta1:'<i class="fas fa-paper-plane"></i> Talk about your project',
+        heroCta2:'View projects <i class="fas fa-arrow-right"></i>',
+        stat1:'Years of experience', stat2:'MTTR improvement (BMW)', stat3:'↑ Performance (Employer RH)', stat4:'Production uptime',
+        bannerTitle:'Open to new freelance projects',
+        bannerDesc:'APIs, systems, AI integrations, microservices — let\'s build something great.',
+        bannerCta:'<i class="fas fa-calendar-check"></i> Schedule a call',
+        servicesTag:'What I do', servicesTitle:'Services available',
+        servicesDesc:'From robust backend to AI integrations — I deliver complete solutions your business needs.',
+        s1Title:'APIs & .NET Backend', s1Desc:'High-performance RESTful APIs, scalable microservices and integrations with legacy systems using .NET/C#.',
+        s2Title:'AI & RAG Integration', s2Desc:'Intelligent search systems, context-aware chatbots, RAG pipelines and LLM integration into your systems.',
+        s3Title:'Cloud & DevOps', s3Desc:'Cloud infrastructure, containerization with Docker/Kubernetes, CI/CD and automated deployment pipelines.',
+        s4Title:'Full-Stack Applications', s4Desc:'End-to-end development: from database to modern web interface with React or Angular.',
+        s5Title:'Observability & Performance', s5Desc:'Monitoring, dashboards, alerts and performance optimization to ensure your systems\' health.',
+        s6Title:'Integrations & Automations', s6Desc:'Third-party API integrations, payment gateways (PIX), messaging systems and process automation.',
+        expTag:'Career', expTitle:'Professional experience',
+        expDesc:'7+ years delivering real results at technology, finance and mobility companies.',
+        exp1Title:'Senior Full-Stack Developer', exp1Date:'Aug 2023 – Present • Remote',
+        exp1a:'Multinational Financial Client Portal — thousands of users across the Americas.',
+        exp1b:'Observability stack with Grafana & Prometheus: <strong>–30% MTTR improvement</strong>.',
+        exp1c:'Scalable notification engine with real-time client communication.',
+        exp1d:'Container orchestration with Kubernetes in automotive systems architecture.',
+        exp2Title:'Full Stack Developer', exp2Date:'Jul 2021 – Aug 2023 • Brazil',
+        exp2a:'Async service with RabbitMQ + .NET: <strong>+70% performance</strong> in report generation.',
+        exp2b:'Electronic time-tracking system with facial recognition (AWS Rekognition): <strong>98.5% accuracy</strong>.',
+        exp2c:'Docker + Kubernetes containerization: <strong>–40% deployment time</strong>.',
+        exp3Title:'Software Engineer', exp3Date:'Mar 2020 – Jul 2021 • Brazil',
+        exp3a:'End-to-end PIX payment solution: <strong>99.9% transaction success rate</strong>.',
+        exp3b:'Corporate website redesign: <strong>+30% in sales inquiries</strong>.',
+        exp3c:'Web security improvements: <strong>–90% incidents</strong>.',
+        exp4Title:'Full Stack Developer', exp4Date:'Jul 2018 – Mar 2020 • Brazil',
+        exp4a:'Production bug reduction of <strong>70%</strong> via flow analysis and unit testing culture.',
+        exp4b:'SQL procedures & views optimization: <strong>+60% performance</strong>.',
+        projTag:'Portfolio', projTitle:'Featured projects',
+        projDesc:'Real solutions delivered in production — from AI systems to payment platforms.',
+        p1Title:'RAG Sprout Mídia', p1Desc:'AI-powered intelligent document search and retrieval. LLM + OpenSearch integration for precise natural language answers.',
+        p2Title:'Alerta Voos', p2Desc:'Flight deals platform with personalized alerts. Robust Python + .NET backend, RabbitMQ messaging and MongoDB hosted on AWS.',
+        p3Title:'AI Documentation Assistant', p3Desc:'Production-ready RAG system. Hybrid search with +40% relevance vs. pure vector approach. LangChain + Vector Databases.',
+        p4Title:'ApiTime-Tracker', p4Desc:'.NET 8 REST API for time tracking with JWT auth, Docker, GitHub Actions CI/CD and 95% test coverage.',
+        p5Title:'Pix-Gateway', p5Desc:'PIX payment microservice with Clean Architecture, Dapper, RabbitMQ and simulated bank integrations.',
+        skillsTag:'Technologies', skillsTitle:'Tech stack',
+        skillsDesc:'Tools I use daily to deliver high-quality software.',
+        sg1:'Languages & Frameworks', sg2:'Cloud & DevOps', sg3:'Databases', sg4:'AI & ML', sg5:'Messaging & APIs', sg6:'Observability',
+        aiTag:'Highlight specialty',
+        aiTitle:'AI that works in production — not just in demos.',
+        aiP1:'I built RAG (Retrieval-Augmented Generation) systems from scratch to production using <strong>LangChain</strong>, <strong>Vector Databases</strong> and hybrid search mechanisms that deliver genuinely relevant answers.',
+        aiP2:'If you need a smart chatbot, technical document search, or LLM automation in your processes — I can help you go from prototype to real product.',
+        aiCta:'<i class="fas fa-comments"></i> Let\'s talk about AI',
+        aiM1:'Relevance with hybrid search vs. pure vector', aiM2:'Accuracy in facial recognition (AWS Rekognition)', aiM3:'Live AI systems in production portfolio',
+        contTag:'Contact', contTitle:'Let\'s build something together?',
+        contDesc:'I\'m available for freelance projects, consulting and partnerships. Tell me what you need and we\'ll find the best path forward.',
+        contEmail:'Professional email', contPhone:'WhatsApp / Phone',
+        availTitle:'Current availability',
+        av1:'Freelance projects', av1v:'✓ Available', av2:'Technical consulting', av2v:'✓ Available',
+        av3:'Remote hire', av3v:'→ Open to opportunities', av4:'Response time', av4v:'~24 hours',
+        formTitle:'Send a message', formName:'NAME', formEmail:'EMAIL', formService:'PROJECT TYPE', formMsg:'MESSAGE', formSend:'Send message',
+        fOpt0:'Select...', fOpt1:'API / .NET Backend', fOpt2:'AI / RAG Integration', fOpt3:'Cloud / DevOps', fOpt4:'Full-Stack App', fOpt5:'Other',
+        edu1:'Bachelor\'s Degree in Computer Science', edu2:'Microsoft Certified: Azure Fundamentals', edu2Date:'Issued 2022',
+        edu3:'Languages', edu3Desc:'Portuguese (Native) · English (Professional)',
       }
     };
 
+    let lang = localStorage.getItem('lang') || 'pt';
 
-   // LANGUAGE TOGGLE (desktop & mobile share state)
-    let currentLang='pt';
-    const updateLangBtns=()=>{
-      document.querySelectorAll('#langToggleDesk,#langToggleMob').forEach(btn=>{btn.textContent=currentLang==='pt'?'EN':'PT';});
-    };
-    const applyTranslations=()=>{
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key=el.dataset.i18n;
-        translations[currentLang][key] && (el.innerHTML=translations[currentLang][key]);
+    function applyLang() {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.dataset.i18n;
+        if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
       });
-    };
-    document.addEventListener('click',e=>{
-      if(e.target.id==='langToggleDesk'||e.target.id==='langToggleMob'){
-        currentLang=currentLang==='pt'?'en':'pt';
-        applyTranslations();updateLangBtns();
-      }
-    });
-    applyTranslations();updateLangBtns();
+      document.querySelectorAll('#langBtn, #langBtnMob').forEach(b => b.textContent = lang === 'pt' ? 'EN' : 'PT');
+    }
 
-    // MOBILE MENU TOGGLE
-    const burger=document.getElementById('burger');
-    const mobileMenu=document.getElementById('mobileMenu');
-    burger.addEventListener('click',()=>{
-      mobileMenu.classList.toggle('hidden');
+    document.querySelectorAll('#langBtn, #langBtnMob').forEach(b => b.addEventListener('click', () => {
+      lang = lang === 'pt' ? 'en' : 'pt';
+      localStorage.setItem('lang', lang);
+      applyLang();
+    }));
+
+    applyLang();
+
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
     });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Contact form
+    function sendEmail() {
+      const name = document.getElementById('fName').value.trim();
+      const email = document.getElementById('fEmail').value.trim();
+      const service = document.getElementById('fService').value;
+      const msg = document.getElementById('fMsg').value.trim();
+      if (!name || !email || !msg) { alert(lang === 'pt' ? 'Preencha todos os campos.' : 'Please fill in all fields.'); return; }
+      const subject = lang === 'pt' ? `Projeto Freelance: ${service || 'Consulta'}` : `Freelance Project: ${service || 'Inquiry'}`;
+      const body = `${lang === 'pt' ? 'Nome' : 'Name'}: ${name}\n${lang === 'pt' ? 'Email' : 'Email'}: ${email}\n\n${msg}`;
+      window.location.href = `mailto:ferreiralaionl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
   </script>
 </body>
 </html>
-
